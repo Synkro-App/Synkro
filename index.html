@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Login</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <main class="container">
+        <header class="app-header">
+            <img src="Synkro.jpg" alt="Logo Synkro" class="header-logo">
+            <h1 translate="no" class="app-title">Synkro</h1>
+            <div class="lang-selector-container">
+                <select id="lang-select" class="lang-select">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="ro">RO</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="content-body">
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label id="label_usuario" for="username"></label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label id="label_contrasena" for="password"></label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <button type="submit" id="btn_entrar" class="btn-default"></button>
+            </form>
+
+            <div class="options-row">
+                <button type="button" id="btn_cambiar_contrasena" class="btn-default" onclick="window.location.href='cambiarcontrasena.html'"></button>
+                <button type="button" id="btn_usuario_prueba" class="btn-default"></button>
+            </div>
+
+            <div class="register-row">
+                <span id="text_no_cuenta"></span>
+                <button type="button" id="btn_registrate" class="btn-default" onclick="window.location.href='registro.html'"></button>
+            </div>
+        </section>
+    </main>
+
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-box">
+            <p id="modal_texto_prueba" class="modal-text"></p>
+            <div class="modal-buttons">
+                <button type="button" id="modal_si" class="btn-default"></button>
+                <button type="button" id="modal_no" class="btn-default"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-modal" class="modal-overlay">
+        <div class="modal-box">
+            <p id="error-modal-text" class="modal-text"></p>
+            <div class="modal-buttons">
+                <button type="button" id="modal_cerrar" class="btn-default"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>

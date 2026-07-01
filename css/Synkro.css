@@ -1,0 +1,274 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con exactamente el mismo degradado alineado arriba */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA (Solo las 3 filas primitivas de usuario) --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Filas interactivas de la cabecera */
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fila de metadatos (Novas + Subs) */
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Fila de botones de acción inferiores */
+.row-actions {
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* Estilos de elementos internos de la cabecera */
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón obligatorio del proyecto: Fondo rojo con texto y bordes negros */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* --- CONTENEDOR DEL MAIN (Totalmente independiente, fuera y debajo) --- */
+.main-content-hub {
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+}
+
+.brand-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.select-lang {
+    padding: 5px 10px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* --- REJILLA Y TARJETAS DE SECCIONES --- */
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.section-card {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.section-card:hover {
+    transform: scale(1.03);
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.section-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.section-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+/* --- POP-UP / MODAL PARA SECCIONES MIXTAS --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Se activa con JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-box {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-modal {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90px;
+}
+
+.btn-si {
+    background-color: #228b22; /* Verde bosque */
+    color: #ffffff;
+}
+
+.btn-si:hover {
+    background-color: #1e7b1e;
+}
+
+.btn-no {
+    background-color: #ff0000; /* Rojo obligatorio */
+    color: #000000;
+}
+
+.btn-no:hover {
+    background-color: #cc0000;
+}

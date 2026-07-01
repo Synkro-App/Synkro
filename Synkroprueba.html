@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Zona de Prueba</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Synkroprueba.css">
+</head>
+<body>
+
+    <main class="container">
+        <div class="content-body">
+            
+            <header class="prueba-header">
+                <div class="header-row">
+                    <img src="default-profile.png" alt="Profile" class="header-icon-profile">
+                    <span id="text_prueba" class="header-text-main"></span>
+                </div>
+                <div class="header-row row-meta">
+                    <div class="meta-item">
+                        <img src="NovaPoints.png" alt="NovaPoints" class="header-icon-points">
+                        <span class="points-val">0</span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="text_subscripcion" class="label-sub"></span>
+                        <span id="text_ninguna" class="val-sub"></span>
+                    </div>
+                </div>
+                <div class="header-row">
+                    <button type="button" id="btn_volver" class="btn-default" onclick="window.location.href='index.html'"></button>
+                </div>
+            </header>
+
+            <section class="main-content-prueba">
+                <div class="brand-language-row">
+                    <div class="brand-box">
+                        <img src="Synkro.jpg" alt="Synkro Logo" class="brand-logo">
+                        <span class="brand-title">Synkro</span>
+                    </div>
+                    <div class="language-box">
+                        <select id="idioma-selector" class="select-lang">
+                            <option value="es">ES</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="ro">RO</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="hub-containers-wrapper">
+                    
+                    <article class="hub-card">
+                        <h2 id="title_secciones" class="card-title"></h2>
+                        <div class="sub-row-container">
+                            <div class="sub-row">
+                                <h3 id="label_secciones_gratis" class="row-subtitle"></h3>
+                                <div id="secciones_gratis_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_secciones_mixtas" class="row-subtitle"></h3>
+                                <div id="secciones_mixtas_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_secciones_pago" class="row-subtitle"></h3>
+                                <div id="secciones_pago_items" class="items-grid"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hub-card">
+                        <h2 id="title_juegos" class="card-title"></h2>
+                        <div class="sub-row-container">
+                            <div class="sub-row">
+                                <h3 id="label_juegos_gratis" class="row-subtitle"></h3>
+                                <div id="juegos_gratis_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_juegos_pago" class="row-subtitle"></h3>
+                                <div id="juegos_pago_items" class="items-grid"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hub-card">
+                        <h2 id="title_peliculas" class="card-title"></h2>
+                        <div class="sub-row-container">
+                            <div class="sub-row">
+                                <h3 id="label_peliculas_gratis" class="row-subtitle"></h3>
+                                <div id="peliculas_gratis_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_peliculas_pago" class="row-subtitle"></h3>
+                                <div id="peliculas_pago_items" class="items-grid"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hub-card">
+                        <h2 id="title_biblioteca" class="card-title"></h2>
+                        <div class="sub-row-container">
+                            <div class="sub-row">
+                                <h3 id="label_biblioteca_gratis" class="row-subtitle"></h3>
+                                <div id="biblioteca_gratis_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_biblioteca_pago" class="row-subtitle"></h3>
+                                <div id="biblioteca_pago_items" class="items-grid"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hub-card">
+                        <h2 id="title_musica" class="card-title"></h2>
+                        <div class="sub-row-container">
+                            <div class="sub-row">
+                                <h3 id="label_musica_gratis" class="row-subtitle"></h3>
+                                <div id="musica_gratis_items" class="items-grid"></div>
+                            </div>
+                            <div class="sub-row">
+                                <h3 id="label_musica_pago" class="row-subtitle"></h3>
+                                <div id="musica_pago_items" class="items-grid"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="modal_detalle" class="modal-overlay">
+        <div class="modal-box">
+            <h3 id="detalle_nombre"></h3>
+            <p id="detalle_edad" class="modal-meta-text"></p>
+            <p id="detalle_extra_1" class="modal-meta-text"></p>
+            <p id="detalle_extra_2" class="modal-meta-text"></p>
+            <p id="detalle_texto" class="modal-body-text"></p>
+            <div id="detalle_subs_container" class="modal-subs-box"></div>
+            <button type="button" id="btn_cerrar_detalle" class="btn-default"></button>
+        </div>
+    </div>
+
+    <script type="module" src="js/Synkroprueba.js"></script>
+</body>
+</html>

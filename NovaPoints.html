@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - NovaPoints</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/novapoints.css">
+</head>
+<body>
+
+    <div class="np-card-container">
+        <div id="perfil-trigger-zone" class="np-row-profile">
+            <img id="user-profile-img" src="default-profile.png" alt="Perfil" class="np-avatar">
+            <span id="user-profile-name" class="np-username">...</span>
+        </div>
+
+        <div class="np-row-data">
+            <div class="np-points-display">
+                <img src="NovaPoints.png" alt="NovaPoints" class="np-icon-coin">
+                <span id="amount-novapoints" class="np-balance">0</span>
+            </div>
+            
+            <div class="np-subs-display">
+                <span id="text_subscripcion" class="np-subs-label"></span>
+                <span id="text-subscription-status" class="np-subs-value">...</span>
+            </div>
+        </div>
+
+        <div class="np-row-actions">
+            <button type="button" id="btn_cerrar_sesion" class="btn-np-red"></button>
+            <button type="button" id="btn_volver" class="btn-np-red"></button>
+        </div>
+
+        <h2 class="np-section-title">NovaPoints</h2>
+
+        <div class="np-content-box">
+            <h3 id="text_que_son_np" class="np-box-title">¿Qué son las NovaPoints?</h3>
+            <p id="text_desc_que_son" class="np-box-p">Es la moneda virtual de la app, no tiene ningún valor fuera de Synkro.</p>
+        </div>
+
+        <div class="np-content-box">
+            <h3 id="text_como_obtener_np" class="np-box-title">¿Cómo obtener NovaPoints?</h3>
+            <div id="container-obtener-botones" class="np-buttons-grid">
+                </div>
+        </div>
+
+        <div class="np-content-box">
+            <h3 id="text_en_que_gastar_np" class="np-box-title">¿En qué gastar mis NovaPoints?</h3>
+            <p id="text_desc_en_que_gastar" class="np-box-p">Puedes gastarlo en la tienda de subscripciones, y en un futuro habrán más opciones para gastar tus monedas.</p>
+        </div>
+
+        <h2 id="text_tienda_subs" class="np-section-title">Tienda de Subscripciones</h2>
+        
+        <div id="container-tienda-suscripciones" class="np-tienda-grid">
+            </div>
+        
+    </div>
+
+    <div id="custom-modal-overlay" class="custom-modal-overlay hidden">
+        <div class="custom-modal-box">
+            <p id="custom-modal-text" class="custom-modal-message">Mensaje de confirmación</p>
+            
+            <div id="custom-modal-password-container" class="hidden">
+                <input type="password" id="custom-modal-input-pass" placeholder="••••••••" class="custom-modal-input">
+            </div>
+
+            <div class="custom-modal-actions">
+                <button type="button" id="custom-modal-btn-si" class="btn-modal btn-modal-confirm">SÍ</button>
+                <button type="button" id="custom-modal-btn-no" class="btn-modal btn-modal-cancel">NO</button>
+                <button type="button" id="custom-modal-btn-ok" class="btn-modal btn-modal-confirm hidden">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/novapoints.js"></script>
+</body>
+</html>

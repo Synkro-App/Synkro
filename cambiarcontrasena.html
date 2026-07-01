@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Cambiar Contraseña</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/cambiarcontrasena.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1 id="titulo_cambiar_contrasena"></h1>
+
+        <section class="content-body">
+            <form id="verify-form" class="app-form">
+                <div class="form-group">
+                    <label id="label_nombre_completo" for="Nombrecompleto"></label>
+                    <input type="text" id="Nombrecompleto" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_usuario" for="usuario"></label>
+                    <input type="text" id="usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_email" for="email"></label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group hidden" id="auth-minor-group">
+                    <label id="label_auth_menor" for="contraseñaautorizacion"></label>
+                    <input type="password" id="contraseñaautorizacion">
+                </div>
+
+                <button type="submit" id="btn_verificar" class="btn-default"></button>
+            </form>
+
+            <form id="new-password-form" class="app-form hidden">
+                <div class="form-group">
+                    <label id="label_nueva_contrasena" for="nueva_contrasena"></label>
+                    <input type="password" id="nueva_contrasena" required>
+                </div>
+
+                <button type="submit" id="btn_guardar" class="btn-default"></button>
+            </form>
+
+            <div class="back-row">
+                <button type="button" id="btn_volver" class="btn-default" onclick="history.back()"></button>
+            </div>
+        </section>
+    </main>
+
+    <div id="status-modal" class="modal-overlay">
+        <div class="modal-box">
+            <p id="status-modal-text" class="modal-text"></p>
+            <div class="modal-buttons">
+                <button type="button" id="modal_cerrar" class="btn-default"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/cambiarcontrasena.js"></script>
+</body>
+</html>

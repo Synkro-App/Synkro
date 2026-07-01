@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Hub Principal</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Synkro.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        
+        <div class="brand-language-row">
+            <h1 class="brand-title">Synkro</h1>
+            <div class="language-box">
+                <select id="idioma-selector" class="select-lang">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="ro">RO</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="sections-container" class="sections-grid">
+            </div>
+
+    </main>
+
+    <div id="popup-mixta" class="modal-overlay">
+        <div class="modal-box">
+            <p id="popup-text" class="modal-text">No todo el contenido es gratuito, ¿Deseas continuar?</p>
+            <div class="modal-actions">
+                <button type="button" id="popup-btn-si" class="btn-modal btn-si">SÍ</button>
+                <button type="button" id="popup-btn-no" class="btn-modal btn-no">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/Synkro.js"></script>
+</body>
+</html>

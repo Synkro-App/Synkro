@@ -1,0 +1,686 @@
+{
+  "label_usuario": {
+    "es": "Usuario",
+    "en": "Username",
+    "fr": "Utilisateur",
+    "ro": "Utilizator"
+  },
+  "label_contrasena": {
+    "es": "Contraseña",
+    "en": "Password",
+    "fr": "Mot de passe",
+    "ro": "Parolă"
+  },
+  "btn_entrar": {
+    "es": "Entrar",
+    "en": "Login",
+    "fr": "Connexion",
+    "ro": "Autentificare"
+  },
+  "btn_cambiar_contrasena": {
+    "es": "Olvidé mi contraseña",
+    "en": "I forgot my password",
+    "fr": "J'ai oublié mon mot de passe",
+    "ro": "Am utat parola"
+  },
+  "btn_usuario_prueba": {
+    "es": "Usuario de prueba",
+    "en": "Test User",
+    "fr": "Utilisateur de test",
+    "ro": "Utilizator de test"
+  },
+  "text_no_cuenta": {
+    "es": "¿No tienes cuenta?",
+    "en": "Don't have an account?",
+    "fr": "Vous n'avez pas de cuenta?",
+    "ro": "Nu ai cont?"
+  },
+  "btn_registrate": {
+    "es": "Regístrate",
+    "en": "Sign up",
+    "fr": "S'inscrire",
+    "ro": "Înregistrează-te"
+  },
+  "placeholder_usuario": {
+    "es": "Introduce tu usuario",
+    "en": "Enter your username",
+    "fr": "Entrez votre utilisateur",
+    "ro": "Introduceți utilizatorul"
+  },
+  "placeholder_contrasena": {
+    "es": "Introduce tu contraseña",
+    "en": "Enter your password",
+    "fr": "Entrez votre mot de passe",
+    "ro": "Introduceți parola"
+  },
+  "modal_texto_prueba": {
+    "es": "Te llevará al hub de prueba para que veas el contenido que hay y decidas si registrarte o no, pero no podrás interactuar con la app. ¿Deseas continuar?",
+    "en": "It will take you to the test hub so you can see the available content and decide whether to register or not, but you will not be able to interact with the app. Do you wish to continue?",
+    "fr": "Cela vous mènera au hub de test pour voir le contenido disponible et décider de vous inscrire ou non, pero ne pourrez pas interagir avec l'application. Voulez-vous continuer?",
+    "ro": "Te va duce la hub-ul de test para a vedea conținutul disponibil și a decide dacă vrei să te înregistrezi o no, pero nu vei putea interacționa cu aplicația. Dorești să continui?"
+  },
+  "modal_si": {
+    "es": "SÍ",
+    "en": "YES",
+    "fr": "OUI",
+    "ro": "DA"
+  },
+  "modal_no": {
+    "es": "NO",
+    "en": "NO",
+    "fr": "NON",
+    "ro": "NU"
+  },
+  "error_usuario_no_existe": {
+    "es": "Usuario incorrecto o no existe",
+    "en": "Incorrect username or does not exist",
+    "fr": "Nom d'utilisateur incorrect ou n'existe pas",
+    "ro": "Utilizator incorect sau nu există"
+  },
+  "error_contrasena_incorrecta": {
+    "es": "Contraseña incorrecta",
+    "en": "Incorrect password",
+    "fr": "Mot de passe incorrect",
+    "ro": "Parolă incorectă"
+  },
+  "modal_cerrar": {
+    "es": "Cerrar",
+    "en": "Close",
+    "fr": "Fermer",
+    "ro": "Închide"
+  },
+  "titulo_cambiar_contrasena": {
+    "es": "Cambiar contraseña",
+    "en": "Change password",
+    "fr": "Changer le mot de passe",
+    "ro": "Schimbă parola"
+  },
+  "label_nombre_completo": {
+    "es": "Nombre completo",
+    "en": "Full name",
+    "fr": "Nom complet",
+    "ro": "Nume complet"
+  },
+  "label_email": {
+    "es": "Email",
+    "en": "Email",
+    "fr": "E-mail",
+    "ro": "Email"
+  },
+  "label_auth_menor": {
+    "es": "Contraseña de autorización (Menor de edad)",
+    "en": "Authorization password (Minor)",
+    "fr": "Mot de passe d'autorisation (Mineur)",
+    "ro": "Parolă de autorizare (Minor)"
+  },
+  "label_nueva_contrasena": {
+    "es": "Nueva contraseña",
+    "en": "New password",
+    "fr": "Nouveau mot de passe",
+    "ro": "Parolă nouă"
+  },
+  "btn_verificar": {
+    "es": "Verificar datos",
+    "en": "Verify data",
+    "fr": "Vérifier les données",
+    "ro": "Verifică datele"
+  },
+  "btn_guardar": {
+    "es": "Guardar nueva contraseña",
+    "en": "Save new password",
+    "fr": "Enregistrer le mot de passe",
+    "ro": "Salvează parola nouă"
+  },
+  "btn_volver": {
+    "es": "Volver",
+    "en": "Back",
+    "fr": "Retour",
+    "ro": "Înapoi"
+  },
+  "error_datos_no_coinciden": {
+    "es": "Los datos introducidos no coinciden con ninguna cuenta",
+    "en": "The data entered does not match any account",
+    "fr": "Les données saisies ne correspondent à aucun compte",
+    "ro": "Datele introduse nu se potrivesc cu niciun cont"
+  },
+  "error_auth_incorrecta": {
+    "es": "Contraseña de autorización incorrecta",
+    "en": "Incorrect authorization password",
+    "fr": "Mot de passe d'autorisation incorrect",
+    "ro": "Parolă de autorizare incorectă"
+  },
+  "error_requisitos_contrasena": {
+    "es": "La contraseña debe tener mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 signo.",
+    "en": "The password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 sign.",
+    "fr": "Le mot de passe doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 signe.",
+    "ro": "Parola trebuie să aibă cel puțin 8 caractere, 1 majusculă, 1 minusculă, 1 număr și 1 semn."
+  },
+  "exito_cambio_contrasena": {
+    "es": "Contraseña actualizada correctamente.",
+    "en": "Password updated successfully.",
+    "fr": "Mot de passe mis à jour avec succès.",
+    "ro": "Parolă actualizată cu succes."
+  },
+  "titulo_registro": {
+    "es": "Registro",
+    "en": "Registration",
+    "fr": "Inscription",
+    "ro": "Înregistrare"
+  },
+  "label_pais": {
+    "es": "País",
+    "en": "Country",
+    "fr": "Pays",
+    "ro": "Țară"
+  },
+  "label_ciudad": {
+    "es": "Ciudad / Comunidad",
+    "en": "City / Region",
+    "fr": "Ville / Région",
+    "ro": "Oraș / Regiune"
+  },
+  "label_fecha_nacimiento": {
+    "es": "Fecha de nacimiento",
+    "en": "Date of birth",
+    "fr": "Date de naissance",
+    "ro": "Data nașterii"
+  },
+  "label_sexo": {
+    "es": "Sexo",
+    "en": "Gender",
+    "fr": "Sexe",
+    "ro": "Sex"
+  },
+  "label_telefono": {
+    "es": "Número de teléfono",
+    "en": "Phone number",
+    "fr": "Numéro de téléphone",
+    "ro": "Număr de telefon"
+  },
+  "btn_registrar": {
+    "es": "Registrar",
+    "en": "Register",
+    "fr": "S'inscrire",
+    "ro": "Înregistrează-te"
+  },
+  "text_ya_cuenta": {
+    "es": "¿Ya tienes una cuenta?",
+    "en": "Already have an account?",
+    "fr": "Vous avez déjà un compte?",
+    "ro": "Ai deja un cont?"
+  },
+  "btn_inicia_sesion": {
+    "es": "Inicia sesión",
+    "en": "Log in",
+    "fr": "Connexion",
+    "ro": "Autentificare"
+  },
+  "sexo_hombre": {
+    "es": "Hombre",
+    "en": "Man",
+    "fr": "Homme",
+    "ro": "Bărbat"
+  },
+  "sexo_mujer": {
+    "es": "Mujer",
+    "en": "Woman",
+    "fr": "Femme",
+    "ro": "Femeie"
+  },
+  "sexo_otro": {
+    "es": "Otro",
+    "en": "Other",
+    "fr": "Autre",
+    "ro": "Altul"
+  },
+  "sexo_no_decir": {
+    "es": "Prefiero no decirlo",
+    "en": "Prefer not to say",
+    "fr": "Préfère ne pas dire",
+    "ro": "Prefer să nu spun"
+  },
+  "error_usuario_existe": {
+    "es": "El nombre de usuario ya existe, por favor escoja otro",
+    "en": "The username already exists, please choose another",
+    "fr": "Le nom d'utilisateur existe déjà, veuillez en choisir un autre",
+    "ro": "Numele de utilizator există deja, vă rugăm să alegeți altul"
+  },
+  "error_telefono_invalido": {
+    "es": "El número de teléfono no es válido para la extensión seleccionada.",
+    "en": "The phone number is invalid for the selected extension.",
+    "fr": "Le numéro de téléphone est invalide pour l'extension sélectionnée.",
+    "ro": "Numărul de telefon este nevalid pentru extensia selectată."
+  },
+  "error_campos_incompletos": {
+    "es": "Por favor, rellene todos los campos de forma válida.",
+    "en": "Please fill in all fields validly.",
+    "fr": "Veuillez remplir todos los champs de manière valide.",
+    "ro": "Vă rugăm să completați toate câmpurile în mod valid."
+  },
+  "exito_registro": {
+    "es": "¡Registro completado con éxito!",
+    "en": "Registration completed successfully!",
+    "fr": "Inscription réussie!",
+    "ro": "Înregistrare finalizată cu succes!"
+  },
+  "error_requisitos_auth_menor": {
+    "es": "La contraseña de autorización debe tener mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 signo.",
+    "en": "The authorization password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 sign.",
+    "fr": "Le mot de passe d'autorisation doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 signe.",
+    "ro": "Parola de autorizare trebuie să aibă cel puțin 8 caractere, 1 majusculă, 1 minusculă, 1 număr și 1 semn."
+  },
+  "error_email_invalido": {
+    "es": "El formato del email no es válido. Debe ser algo@algo.algo",
+    "en": "The email format is invalid. It must be something@something.something",
+    "fr": "Le format de l'e-mail est invalide. Il doit être quelquechose@quelquechose.quelquechose",
+    "ro": "Formatul e-mailului este nevalid. Trebuie să fie ceva@ceva.ceva"
+  },
+  "text_prueba": {
+    "es": "Prueba",
+    "en": "Test",
+    "fr": "Test",
+    "ro": "Probă"
+  },
+  "text_subscripcion": {
+    "es": "Subscripción: ",
+    "en": "Subscription: ",
+    "fr": "Abonnement: ",
+    "ro": "Abonament: "
+  },
+  "text_ninguna": {
+    "es": "Ninguna",
+    "en": "None",
+    "fr": "Aucune",
+    "ro": "Niciuna"
+  },
+  "title_secciones": {
+    "es": "Secciones",
+    "en": "Sections",
+    "fr": "Sections",
+    "ro": "Secțiuni"
+  },
+  "title_juegos": {
+    "es": "Juegos",
+    "en": "Games",
+    "fr": "Jeux",
+    "ro": "Jocuri"
+  },
+  "title_peliculas": {
+    "es": "Películas y Series",
+    "en": "Movies & Series",
+    "fr": "Films et Séries",
+    "ro": "Filme și Seriale"
+  },
+  "title_biblioteca": {
+    "es": "Biblioteca",
+    "en": "Library",
+    "fr": "Bibliothèque",
+    "ro": "Bibliotecă"
+  },
+  "title_musica": {
+    "es": "Música",
+    "en": "Music",
+    "fr": "Musique",
+    "ro": "Muzică"
+  },
+  "row_gratis": {
+    "es": "Gratis",
+    "en": "Free",
+    "fr": "Gratuit",
+    "ro": "Gratuit"
+  },
+  "row_mixtas": {
+    "es": "Mixtas",
+    "en": "Mixed",
+    "fr": "Mixtes",
+    "ro": "Mixte"
+  },
+  "row_pago": {
+    "es": "Pago",
+    "en": "Paid",
+    "fr": "Payant",
+    "ro": "Plătit"
+  },
+  "info_edad": {
+    "es": "Edad mínima: ",
+    "en": "Minimum age: ",
+    "fr": "Âge minimum: ",
+    "ro": "Vârstă minimă: "
+  },
+  "info_autor": {
+    "es": "Autor: ",
+    "en": "Author: ",
+    "fr": "Auteur: ",
+    "ro": "Autor: "
+  },
+  "info_cantante": {
+    "es": "Cantante(s): ",
+    "en": "Singer(s): ",
+    "fr": "Chanteur(s): ",
+    "ro": "Cântăreț(i): "
+  },
+  "info_sinopsis": {
+    "es": "Sinopsis: ",
+    "en": "Synopsis: ",
+    "fr": "Synopsis: ",
+    "ro": "Sinopsis: "
+  },
+  "info_fecha_estreno": {
+    "es": "Fecha de estreno: ",
+    "en": "Release date: ",
+    "fr": "Date de sortie: ",
+    "ro": "Data lansării: "
+  },
+  "btn_cerrar_sesion": {
+    "es": "Cerrar sesión",
+    "en": "Logout",
+    "fr": "Déconnexion",
+    "ro": "Deconectare"
+  },
+  "btn_editar_datos": {
+    "es": "Editar datos",
+    "en": "Edit data",
+    "fr": "Modifier les données",
+    "ro": "Editare date"
+},
+"btn_guardar_datos": {
+    "es": "Guardar datos",
+    "en": "Save data",
+    "fr": "Enregistrer les données",
+    "ro": "Salvare date"
+},
+"text_contrasena_autorizacion": {
+    "es": "Contraseña de autorización",
+    "en": "Authorization password",
+    "fr": "Mot de passe d'autorisation",
+    "ro": "Parolă de autorizare"
+},
+"btn_aceptar": {
+    "es": "Aceptar",
+    "en": "Accept",
+    "fr": "Accepter",
+    "ro": "Acceptă"
+},
+"btn_cancelar": {
+    "es": "Cancelar",
+    "en": "Cancel",
+    "fr": "Annuler",
+    "ro": "Anulează"
+},
+"error_campos_vacios": {
+    "es": "Por favor, rellena todos los campos obligatorios del perfil.",
+    "en": "Please, fill in all required profile fields.",
+    "fr": "Veuillez remplir tous les champs de profil obligatoires.",
+    "ro": "Vă rugăm să completați toate câmpurile obligatorii de profil."
+},
+"error_email": {
+    "es": "El correo electrónico debe seguir el formato estructurado algo@algo.algo",
+    "en": "The email address must follow the structured format something@something.something",
+    "fr": "L'adresse e-mail doit suivre le format structuré quelquechose@quelquechose.quelquechose",
+    "ro": "Adresa de e-mail trebuie să urmeze formatul structurat ceva@ceva.ceva"
+},
+"error_telefono": {
+    "es": "El número telefónico no coincide con la longitud numérica exacta requerida para esa extensión.",
+    "en": "The phone number does not match the exact numeric length required for that extension.",
+    "fr": "Le numéro de téléphone ne correspond pas à la longueur numérique exacte requise pour cette extension.",
+    "ro": "Numărul de telefon nu se potrivește cu lungimea numerică exactă necesară pentru acea extensie."
+},
+"error_pass_incorrecta": {
+    "es": "Contraseña de autorización incorrecta. Acceso denegado.",
+    "en": "Incorrect authorization password. Access denied.",
+    "fr": "Mot de passe d'autorisation incorrect. Accès refusé.",
+    "ro": "Parolă de autorizare incorectă. Acces refuzat."
+},
+"error_pass_obligatoria": {
+    "es": "Guardado cancelado. Es obligatorio definir la contraseña para perfiles menores de edad.",
+    "en": "Save cancelled. It is mandatory to define the password for underage profiles.",
+    "fr": "Enregistrement annulé. Il est obligatoire de définir le mot de passe pour les profils mineurs.",
+    "ro": "Salvare anulată. Este obligatoriu să definiți parola pentru profilurile de minori."
+},
+"prompt_ingresar_pass": {
+    "es": "Introduce la contraseña de autorización para poder editar los datos del menor:",
+    "en": "Enter the authorization password to be able to edit the minor's data:",
+    "fr": "Saisissez le mot de passe d'autorisation pour pouvoir modifier les données du mineur:",
+    "ro": "Introduceți parola de autorizare pentru a putea edita datele minorului:"
+},
+"prompt_crear_pass": {
+    "es": "El perfil ha pasado a ser menor de edad. Define una nueva contraseña de autorización obligatoria:",
+    "en": "The profile is now a minor. Define a new mandatory authorization password:",
+    "fr": "Le profil est désormais mineur. Définissez un nouveau mot de passe d'autorisation obligatoire:",
+    "ro": "Profilul a devenit minor. Definiți o nouă parolă de autorizare obligatorie:"
+},
+"title_cambiar_pass_auth": {
+    "es": "Cambiar contraseña de autorización",
+    "en": "Change Authorization Password",
+    "fr": "Changer le mot de passe d'autorisation",
+    "ro": "Schimbare parolă de autorizare"
+},
+"label_nombre_completo": {
+    "es": "Nombre Completo",
+    "en": "Full Name",
+    "fr": "Nom complet",
+    "ro": "Nume complet"
+},
+"label_usuario": {
+    "es": "Usuario",
+    "en": "Username",
+    "fr": "Nom d'utilisateur",
+    "ro": "Nume de utilizator"
+},
+"label_email": {
+    "es": "Correo electrónico",
+    "en": "Email",
+    "fr": "E-mail",
+    "ro": "Email"
+},
+"label_contrasena": {
+    "es": "Contraseña de la cuenta",
+    "en": "Account Password",
+    "fr": "Mot de passe del compte",
+    "ro": "Parolă cont"
+},
+"btn_volver": {
+    "es": "Volver",
+    "en": "Back",
+    "fr": "Retour",
+    "ro": "Înapoi"
+},
+"btn_guardar_datos": {
+    "es": "Guardar cambios",
+    "en": "Save changes",
+    "fr": "Enregistrer les modifications",
+    "ro": "Salvează modificările"
+},
+"btn_aceptar": {
+    "es": "Aceptar",
+    "en": "Accept",
+    "fr": "Accepter",
+    "ro": "Acceptă"
+},
+"btn_cancelar": {
+    "es": "Cancelar",
+    "en": "Cancel",
+    "fr": "Annuler",
+    "ro": "Anulează"
+},
+"error_solo_menores": {
+    "es": "Contraseña de autorización solo para menores.",
+    "en": "Authorization password only for minors.",
+    "fr": "Mot de passe d'autorisation uniquement pour les mineurs.",
+    "ro": "Parolă de autorizare doar pentru minori."
+},
+"error_campos_no_coinciden": {
+    "es": "Los campos introducidos no coinciden con los datos de tu cuenta.",
+    "en": "The entered fields do not match your account data.",
+    "fr": "Les champs saisis ne correspondent pas aux données de votre compte.",
+    "ro": "Câmpurile introduse nu se potrivesc cu datele contului tău."
+},
+"prompt_ingresar_pass": {
+    "es": "Introduce la contraseña de autorización actual:",
+    "en": "Enter current authorization password:",
+    "fr": "Entrez le mot de passe d'autorisation actuel :",
+    "ro": "Introduceți parola curentă de autorizare:"
+},
+"label_nueva_pass_auth": {
+    "es": "Introduce la nueva contraseña de autorización:",
+    "en": "Enter the new authorization password:",
+    "fr": "Entrez le nouveau mot de passe d'autorisation :",
+    "ro": "Introduceți noua parolă de autorizare:"
+},
+"error_pass_incorrecta": {
+    "es": "Contraseña de autorización incorrecta. Acceso denegado.",
+    "en": "Incorrect authorization password. Access denied.",
+    "fr": "Mot de passe d'autorisation incorrect. Accès refusé.",
+    "ro": "Parolă de autorizare incorectă. Acces refuzat."
+},
+"error_fuerza_contrasena": {
+    "es": "La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un signo.",
+    "en": "Password must contain at least 8 characters, one uppercase, one lowercase, one number, and one symbol.",
+    "fr": "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un symbole.",
+    "ro": "Parola trebuie să conțină cel puțin 8 caractere, o majusculă, o minusculă, un număr și un simbol."
+},
+"exito_cambio_guardado": {
+    "es": "La contraseña de autorización se ha cambiado correctamente.",
+    "en": "The authorization password has been successfully changed.",
+    "fr": "Le mot de passe d'autorisation a été modifié avec succès.",
+    "ro": "Parola de autorizare a fost schimbată cu succes."
+},
+"text_que_son_np": {
+    "es": "¿Qué son las NovaPoints?",
+    "en": "What are NovaPoints?",
+    "fr": "Que sont los NovaPoints?",
+    "ro": "Ce sunt NovaPoints?"
+},
+"text_desc_que_son": {
+    "es": "Es la moneda virtual de la app, no tiene ningún valor fuera de Synkro.",
+    "en": "It is the virtual currency of the app, it has no value outside Synkro.",
+    "fr": "C'est la monnaie virtuelle de l'application, elle n'a ninguna valeur en dehors de Synkro.",
+    "ro": "Este moneda virtuală a aplicației, nu are nicio valoare în afara Synkro."
+},
+"text_como_obtener_np": {
+    "es": "¿Cómo obtener NovaPoints?",
+    "en": "How to get NovaPoints?",
+    "fr": "Comment obtenir des NovaPoints?",
+    "ro": "Cum să obții NovaPoints?"
+},
+"text_en_que_gastar_np": {
+    "es": "¿En qué gastar mis NovaPoints?",
+    "en": "What to spend my NovaPoints on?",
+    "fr": "En quoi dépenser mes NovaPoints?",
+    "ro": "Pe ce să-mi cheltuiesc NovaPoints?"
+},
+"text_desc_en_que_gastar": {
+    "es": "Puedes gastarlo en la tienda de subscripciones, y en un futuro habrán más opciones para gastar tus monedas.",
+    "en": "You can spend it in the subscription store, and in the future there will be more options to spend your coins.",
+    "fr": "Vous pouvez le dépenser dans la boutique d'abonnements, et à l'avenir, il y aura plus d'options pour dépenser vos pièces.",
+    "ro": "Le poți cheltui în magazinul de abonamente, iar în viitor vor exista mai multe opțiuni pentru a-ți cheltui monedele."
+},
+"text_tienda_subs": {
+    "es": "Tienda de Subscripciones",
+    "en": "Subscription Store",
+    "fr": "Boutique d'abonnements",
+    "ro": "Magazine de abonamente"
+},
+"btn_comprar_subs": {
+    "es": "Comprar subscripción",
+    "en": "Buy subscription",
+    "fr": "Acheter un abonnement",
+    "ro": "Cumpără abonament"
+},
+"btn_abandonar_subs": {
+    "es": "Abandonar subscripción",
+    "en": "Cancel subscription",
+    "fr": "Résilier l'abonnement",
+    "ro": "Anulează abonamentul"
+},
+"text_dias": {
+    "es": "días",
+    "en": "days",
+    "fr": "jours",
+    "ro": "zile"
+},
+"alert_error_pass": {
+    "es": "Contraseña de autorización incorrecta.",
+    "en": "Incorrect authorization password.",
+    "fr": "Mot de passe d'autorisation incorrect.",
+    "ro": "Parolă de autorizare incorectă."
+},
+"alert_no_points": {
+    "es": "No tienes suficientes NovaPoints para comprar esta subscripción.",
+    "en": "You do not have enough NovaPoints to buy this subscription.",
+    "fr": "Vous n'avez pas assez de NovaPoints pour acheter cet abonnement.",
+    "ro": "Nu aveți suficiente NovaPoints pentru a cumpăra acest abonament."
+},
+"pop_abandonar_msg": {
+    "es": "Perderás todas las NovaPoints gastadas en la subscripción y no las podrás recuperar, ¿Estás seguro de que quieres continuar?",
+    "en": "You will lose all NovaPoints spent on the subscription and you will not be able to recover them. Are you sure you want to continue?",
+    "fr": "Vous perdrez tous les NovaPoints dépensés pour l'abonnement et vous ne pourrez pas les récupérer. Êtes-vous sûr de vouloir continuer?",
+    "ro": "Vei pierde toate NovaPoints cheltuite pentru abonament și nu le vei mai putea recupera. Ești sigur că vrei să continui?"
+},
+"pop_comprar_msg": {
+    "es": "¿Deseas comprar la subscripción?",
+    "en": "Do you want to buy the subscription?",
+    "fr": "Voulez-vous acheter l'abonnement?",
+    "ro": "Doriți să cumpărați abonamentul?"
+},
+"prompt_pass_menor": {
+    "es": "Eres menor de edad. Introduce la contraseña de autorización de tus padres:",
+    "en": "You are a minor. Please enter your parents' authorization password:",
+    "fr": "Vous êtes mineur. Veuillez saisir le mot de passe d'autorisation de vos parents :",
+    "ro": "Ești minor. Te rugăm să introduci parola de autorizare a părinților tăi:"
+},
+  "text_titulo_contacto": {
+    "es": "Contacta con Synkro",
+    "en": "Contact Synkro",
+    "fr": "Contacter Synkro",
+    "ro": "Contactați Synkro"
+  },
+  "text_label_usuario": {
+    "es": "Usuario:",
+    "en": "User:",
+    "fr": "Utilisateur:",
+    "ro": "Utilizator:"
+  },
+  "text_label_tipo": {
+    "es": "Tipo:",
+    "en": "Type:",
+    "fr": "Type:",
+    "ro": "Tip:"
+  },
+  "option_peticion": {
+    "es": "Petición",
+    "en": "Request",
+    "fr": "Demande",
+    "ro": "Cerere"
+  },
+  "option_fallo": {
+    "es": "Fallo",
+    "en": "Bug / Error",
+    "fr": "Erreur",
+    "ro": "Eroare"
+  },
+  "option_feedback": {
+    "es": "Feedback",
+    "en": "Feedback",
+    "fr": "Commentaire",
+    "ro": "Feedback"
+  },
+  "text_label_mensaje": {
+    "es": "Mensaje:",
+    "en": "Message:",
+    "fr": "Message:",
+    "ro": "Mesaj:"
+  },
+  "btn_enviar_contacto": {
+    "es": "Enviar",
+    "en": "Send",
+    "fr": "Envoyer",
+    "ro": "Trimite"
+  },
+  "alert_envio_exito": {
+    "es": "Tu mensaje ha sido enviado correctamente.",
+    "en": "Your message has been sent successfully.",
+    "fr": "Votre message a été envoyé avec succès.",
+    "ro": "Mesajul tău a fost trimis cu succes."
+  }
+}

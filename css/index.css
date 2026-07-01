@@ -1,0 +1,188 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Configuración del cuerpo con el degradado obligatorio */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Contenedor principal centrado horizontalmente */
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Cabecera superior arriba del todo */
+.app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    color: #000000;
+    margin: 0;
+}
+
+.lang-select {
+    padding: 6px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Caja contenedora transparente para el formulario */
+.content-body {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-group input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+}
+
+/* Fila para Cambiar contraseña y Usuario de prueba */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.options-row .btn-default {
+    flex: 1;
+    font-size: 0.9rem;
+    padding: 10px 8px;
+}
+
+/* Fila para registro inferior */
+.register-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.register-row span {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón obligatorio: Rojo con texto negro */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* --- ESTILOS DEL POP-UP MODAL PERSONALIZADO --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Controlado desde JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-text {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-buttons .btn-default {
+    min-width: 80px;
+}

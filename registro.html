@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Registro</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1 id="titulo_registro"></h1>
+
+        <section class="content-body">
+            <form id="registro-form" class="registro-form">
+                
+                <div class="form-group">
+                    <label id="label_nombre_completo" for="Nombrecompleto"></label>
+                    <input type="text" id="Nombrecompleto" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_usuario" for="usuario"></label>
+                    <input type="text" id="usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_contrasena" for="contraseña"></label>
+                    <input type="password" id="contraseña" required>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_pais" for="pais"></label>
+                    <select id="pais" required>
+                        <option value="" disabled selected>--</option>
+                        <optgroup label="Europa">
+                            <option value="España">España</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Rumanía">Rumanía</option>
+                        </optgroup>
+                        <optgroup label="América">
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="México">México</option>
+                            <option value="Argentina">Argentina</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_ciudad" for="Ciudad"></label>
+                    <select id="Ciudad" required disabled>
+                        <option value="" disabled selected>--</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_fecha_nacimiento" for="fechanacimiento"></label>
+                    <input type="date" id="fechanacimiento" required>
+                </div>
+
+                <div class="form-group hidden" id="auth-minor-row">
+                    <label id="label_auth_menor" for="contraseñaautorizacion"></label>
+                    <input type="password" id="contraseñaautorizacion">
+                </div>
+
+                <div class="form-group">
+                    <label id="label_sexo" for="sexo"></label>
+                    <select id="sexo" required>
+                        <option value="" disabled selected>--</option>
+                        <option value="Hombre" id="sexo_hombre"></option>
+                        <option value="Mujer" id="sexo_mujer"></option>
+                        <option value="Otro" id="sexo_otro"></option>
+                        <option value="Prefiero no decirlo" id="sexo_no_decir"></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group extension-box">
+                        <label for="extension">Ext.</label>
+                        <select id="extension" required disabled>
+                            <option value="+34">+34</option>
+                            <option value="+33">+33</option>
+                            <option value="+40">+40</option>
+                            <option value="+1">+1</option>
+                            <option value="+52">+52</option>
+                            <option value="+54">+54</option>
+                        </select>
+                    </div>
+                    <div class="form-group telefono-box">
+                        <label id="label_telefono" for="nTelefono"></label>
+                        <input type="number" id="nTelefono" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="label_email" for="email"></label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <button type="submit" id="btn_registrar" class="btn-default"></button>
+            </form>
+
+            <div class="login-row">
+                <span id="text_ya_cuenta"></span>
+                <button type="button" id="btn_inicia_sesion" class="btn-default" onclick="window.location.href='index.html'"></button>
+            </div>
+        </section>
+    </main>
+
+    <div id="status-modal" class="modal-overlay">
+        <div class="modal-box">
+            <p id="status-modal-text" class="modal-text"></p>
+            <div class="modal-buttons">
+                <button type="button" id="modal_cerrar" class="btn-default"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/registro.js"></script>
+</body>
+</html>

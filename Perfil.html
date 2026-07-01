@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Perfil</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Perfil.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div class="user-profile-section">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img clickable-avatar">
+            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+        <div class="language-box-container">
+            <select id="idioma-selector" class="select-lang">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="ro">RO</option>
+            </select>
+        </div>
+
+        <div class="profile-data-display-container">
+            
+            <div class="data-display-row">
+                <span id="label_nombre_completo" class="data-label"></span>
+                <div id="container-fullname" class="dynamic-field-wrapper">
+                    <span id="data-fullname" class="data-value">---</span>
+                </div>
+            </div>
+            
+            <div class="data-display-row">
+                <span id="label_pais" class="data-label"></span>
+                <div id="container-country" class="dynamic-field-wrapper">
+                    <span id="data-country" class="data-value">---</span>
+                </div>
+            </div>
+            
+            <div class="data-display-row">
+                <span id="label_ciudad" class="data-label"></span>
+                <div id="container-city" class="dynamic-field-wrapper">
+                    <span id="data-city" class="data-value">---</span>
+                </div>
+            </div>
+            
+            <div class="data-display-row">
+                <span id="label_fecha_nacimiento" class="data-label"></span>
+                <div id="container-birthdate" class="dynamic-field-wrapper">
+                    <span id="data-birthdate" class="data-value">---</span>
+                </div>
+            </div>
+            
+            <div class="data-display-row">
+                <span id="label_sexo" class="data-label"></span>
+                <div id="container-gender" class="dynamic-field-wrapper">
+                    <span id="data-gender" class="data-value">---</span>
+                </div>
+            </div>
+            
+            <div class="phone-fields-layout-wrapper">
+                <div class="data-display-row half-row">
+                    <span id="label_extension" class="data-label">Ext.</span>
+                    <div id="container-extension" class="dynamic-field-wrapper">
+                        <span id="data-extension" class="data-value">---</span>
+                    </div>
+                </div>
+                <div class="data-display-row half-row">
+                    <span id="label_telefono" class="data-label">Tel.</span>
+                    <div id="container-phone" class="dynamic-field-wrapper">
+                        <span id="data-phone" class="data-value">---</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="data-display-row">
+                <span id="label_email" class="data-label"></span>
+                <div id="container-email" class="dynamic-field-wrapper">
+                    <span id="data-email" class="data-value">---</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-action-container">
+            <button type="button" id="btn-edit-toggle" class="btn-default"></button>
+        </div>
+
+        <div class="passwords-wrapper-row">
+            <div id="box-pass-normal" class="password-box-item">
+                <span id="label_contrasena" class="pass-box-title"></span>
+                <span class="pass-box-dots">**********</span>
+            </div>
+            <div id="box-pass-auth" class="password-box-item">
+                <span id="label_pass_auth" class="pass-box-title"></span>
+                <span class="pass-box-dots">**********</span>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="custom-popup-overlay" class="popup-overlay select-hidden">
+        <div class="popup-card-box">
+            <p id="popup-message-text" class="popup-msg-content"></p>
+            <div id="popup-input-container" class="popup-field-holder select-hidden">
+                <input type="password" id="popup-secure-input" class="popup-dark-input">
+            </div>
+            <div class="popup-actions-row">
+                <button type="button" id="popup-btn-cancel" class="btn-popup-action select-hidden"></button>
+                <button type="button" id="popup-btn-confirm" class="btn-popup-action"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/Perfil.js"></script>
+</body>
+</html>

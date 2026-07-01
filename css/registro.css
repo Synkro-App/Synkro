@@ -1,0 +1,166 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el mismo degradado obligatorio alineado arriba */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* Estilo del título en texto negro */
+h1 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+/* Caja contenedora transparente */
+.content-body {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+}
+
+.form-group.hidden {
+    display: none;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+    width: 100%;
+}
+
+/* Fila para Extensión y Teléfono juntos */
+.form-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.extension-box {
+    width: 30%;
+}
+
+.telefono-box {
+    width: 70%;
+}
+
+/* Fila de inicio de sesión inferior */
+.login-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.login-row span {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón obligatorio: Rojo con texto negro */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+.login-row .btn-default {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+}
+
+/* --- ESTILOS DEL POP-UP MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-text {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-box .btn-default {
+    width: auto;
+    min-width: 100px;
+}
