@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-/* Cuerpo con el degradado alineado arriba */
+/* Cuerpo con el fondo degradado */
 body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -99,7 +99,7 @@ body {
     color: #000000;
 }
 
-/* Botón estándar (para la cabecera) */
+/* Botón estándar (para la cabecera y acciones) */
 .btn-default {
     background-color: #ff0000;
     color: #000000;
@@ -116,63 +116,88 @@ body {
     background-color: #cc0000;
 }
 
-/* --- CONTENEDOR PRINCIPAL DEL MAIN --- */
-.main-content-hub {
+/* Contenedor del juego / modal de código */
+.game-main-container {
     width: 100%;
-    max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 25px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 480px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
-.catalogo-header-container {
+.modal-code-box {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    border-radius: 10px;
     text-align: center;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.titulo-catalogo-text {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #000000;
-}
-
-.juego-container {
-    width: 100%;
+.code-actions {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-/* Estilos específicos para el tablero y celdas */
-.cell-clasico {
+#input-codigo-sala {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #000;
+    width: 80%;
+    text-align: center;
+}
+
+/* Tablero de Tres en Raya */
+.board-container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.grid-tres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.celda-tres {
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.cell-clasico:hover {
-    background-color: rgba(255, 255, 255, 0.5) !important;
+.celda-tres:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.celda-seleccionada {
-    border-color: #ffcc00 !important;
-    background-color: rgba(255, 204, 0, 0.4) !important;
+.celda-tres.seleccionada {
+    border-color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
 /* Responsive para dispositivos móviles */
 @media (max-width: 680px) {
-    .hub-real-header {
+    .hub-real-header, .modal-code-box, .board-container {
         padding: 15px;
-    }
-
-    .titulo-catalogo-text {
-        font-size: 1.8rem;
     }
 }
