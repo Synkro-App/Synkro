@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sala Amigo - Tres en Movimiento - Synkro</title>
+    <title>Tres en Raya - Amigo - Synkro</title>
     <link rel="icon" href="../../Synkro.jpg" type="image/jpeg">
     <link rel="stylesheet" href="css/salaamigotres.css">
 </head>
@@ -33,14 +33,39 @@
         </div>
     </header>
 
-    <!-- Contenido Principal del Juego -->
-    <main class="main-content-hub">
-        <div class="catalogo-header-container">
-            <h1 id="titulo-catalogo-juego" class="titulo-catalogo-text">Sala Amigo - Tres en Movimiento</h1>
+    <!-- Contenedor Principal del Juego / Selector de Código -->
+    <main class="game-main-container">
+        <div id="modal-codigo" class="modal-code-box">
+            <h2>Tres en Raya con Amigo</h2>
+            <p>¿Qué deseas hacer?</p>
+            <div class="code-actions">
+                <button id="btn-generar-codigo" class="btn-default">Generar Código</button>
+                <button id="btn-introducir-codigo" class="btn-default">Tengo un Código</button>
+            </div>
+            <div id="contenedor-input-codigo" style="display: none; margin-top: 15px;">
+                <input type="text" id="input-codigo-sala" placeholder="Introduce el código..." maxlength="10">
+                <button id="btn-unirse-sala" class="btn-default" style="margin-top: 10px;">Unirse</button>
+            </div>
+            <div id="contenedor-espera-codigo" style="display: none; margin-top: 15px;">
+                <p>Código generado: <strong id="lbl-codigo-generado">---------</strong></p>
+                <p>Esperando a que se una el jugador 2...</p>
+            </div>
         </div>
 
-        <div id="contenedor-juego" class="juego-container">
-            <!-- Contenido específico de la sala de juego -->
+        <div id="tablero-tresenraya" style="display: none;" class="board-container">
+            <div id="info-partida-txt" style="margin-bottom: 10px; font-weight: bold;">Fase: Colocación de fichas</div>
+            <div class="grid-tres">
+                <div class="celda-tres" data-index="0"></div>
+                <div class="celda-tres" data-index="1"></div>
+                <div class="celda-tres" data-index="2"></div>
+                <div class="celda-tres" data-index="3"></div>
+                <div class="celda-tres" data-index="4"></div>
+                <div class="celda-tres" data-index="5"></div>
+                <div class="celda-tres" data-index="6"></div>
+                <div class="celda-tres" data-index="7"></div>
+                <div class="celda-tres" data-index="8"></div>
+            </div>
+            <div id="mensaje-turno" style="margin-top: 15px; font-size: 1.1rem;"></div>
         </div>
     </main>
 
