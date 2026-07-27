@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Calculadora</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Calculadora.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="calculadora-wrapper">
+            <input type="text" id="calc-screen" class="calc-display" readonly value="0">
+            
+            <div class="calc-buttons-grid">
+                <button type="button" class="btn-calc btn-clear" id="btn-calc-clear">C</button>
+                <button type="button" class="btn-calc btn-operator" data-op="/">÷</button>
+                <button type="button" class="btn-calc btn-operator" data-op="*">×</button>
+                <button type="button" class="btn-calc btn-operator" data-op="-">−</button>
+
+                <button type="button" class="btn-calc btn-num" data-num="7">7</button>
+                <button type="button" class="btn-calc btn-num" data-num="8">8</button>
+                <button type="button" class="btn-calc btn-num" data-num="9">9</button>
+                <button type="button" class="btn-calc btn-operator" data-op="+">+</button>
+
+                <button type="button" class="btn-calc btn-num" data-num="4">4</button>
+                <button type="button" class="btn-calc btn-num" data-num="5">5</button>
+                <button type="button" class="btn-calc btn-num" data-num="6">6</button>
+                <button type="button" class="btn-calc btn-equal" id="btn-calc-equal">=</button>
+
+                <button type="button" class="btn-calc btn-num" data-num="1">1</button>
+                <button type="button" class="btn-calc btn-num" data-num="2">2</button>
+                <button type="button" class="btn-calc btn-num" data-num="3">3</button>
+                <button type="button" class="btn-calc btn-num btn-zero" data-num="0">0</button>
+                
+                <button type="button" class="btn-calc btn-num" data-num=".">.</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/Calculadora.js"></script>
+</body>
+</html>

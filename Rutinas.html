@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Synkro - Rutinas</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="Css/Rutinas.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <!-- Fila 1: Perfil e Imagen -->
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text"></span>
+        </div>
+
+        <!-- Fila 2: Novas y Suscripción -->
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <!-- Fila 3: Botones de Acción -->
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn_cerrar_sesion" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <!-- Contenedor del Main: Gestión de Rutinas -->
+    <main class="main-content-hub">
+        <div class="rutinas-wrapper">
+            <h2 id="txt-titulo-rutinas" class="titulo-seccion"></h2>
+            
+            <!-- Selector de Fecha Principal -->
+            <div class="rutinas-controles">
+                <input type="date" id="input-fecha-rutina" class="input-fecha">
+            </div>
+
+            <!-- Selector de Modo (Ver / Editar) -->
+            <div class="contenedor-selector-modo">
+                <button type="button" id="btn-modo-ver" class="btn-modo activo"></button>
+                <button type="button" id="btn-modo-editar" class="btn-modo"></button>
+            </div>
+
+            <!-- Panel de Herramientas Avanzadas (Solo visible en Modo Editar) -->
+            <div id="panel-herramientas-rutinas" class="panel-herramientas">
+                <!-- Bloque 1: Copiar a un día específico -->
+                <div class="herramienta-opcion">
+                    <input type="date" id="input-fecha-destino" class="input-fecha-sub">
+                    <button type="button" id="btn-ejecutar-copiar" class="btn-herramienta">Copiar Día</button>
+                </div>
+                
+                <!-- Bloque 2: Convertir en Plantilla -->
+                <div class="herramienta-opcion">
+                    <input type="text" id="input-nombre-plantilla" class="input-text-sub" placeholder="Nombre plantilla...">
+                    <button type="button" id="btn-guardar-plantilla" class="btn-herramienta">Hacer Plantilla</button>
+                </div>
+
+                <!-- Bloque 3: Aplicar Plantilla Existente -->
+                <div class="herramienta-opcion">
+                    <select id="select-plantillas-disponibles" class="select-sub">
+                        <option value="">Seleccionar plantilla...</option>
+                    </select>
+                    <button type="button" id="btn-aplicar-plantilla" class="btn-herramienta">Aplicar</button>
+                </div>
+            </div>
+
+            <!-- Contenedor dinámico: Muestra las rutinas -->
+            <div id="contenedor-cuadros-rutinas" class="contenedor-cuadros"></div>
+        </div>
+    </main>
+
+    <!-- Pop-up Modal Personalizado para Confirmación de Borrados -->
+    <div id="modal-confirmar-borrar" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-confirmar-titulo">Confirmar</h3>
+            <p id="modal-confirmar-mensaje">¿Estás seguro?</p>
+            <div class="modal-botones">
+                <button type="button" id="btn-modal-cancelar" class="btn-modal-action btn-cancelar"></button>
+                <button type="button" id="btn-modal-aceptar" class="btn-modal-action btn-aceptar"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="Js/Rutinas.js"></script>
+</body>
+</html>

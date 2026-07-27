@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Traductor</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Traductor.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="traductor-wrapper">
+            
+            <div class="traductor-langs">
+                <select id="select-lang-source" class="select-lang">
+                    <option value="auto">Detectar idioma</option>
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                    <option value="fr">Francés</option>
+                    <option value="de">Alemán</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Portugués</option>
+                    <option value="ro">Rumano </option>
+                </select>
+                
+                <span class="lang-arrow">➔</span>
+                
+                <select id="select-lang-target" class="select-lang">
+                    <option value="en">Inglés</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Francés</option>
+                    <option value="de">Alemán</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Portugués</option>
+                    <option value="ro">Rumano </option>
+                </select>
+            </div>
+
+            <div class="traductor-text-areas">
+                <textarea id="text-source" class="traductor-textarea" placeholder="Escribe el texto a traducir..."></textarea>
+                <textarea id="text-target" class="traductor-textarea" placeholder="Traducción..." readonly></textarea>
+            </div>
+
+            <button type="button" id="btn-traducir" class="btn-default btn-block">Traducir</button>
+
+        </div>
+    </main>
+
+    <script type="module" src="js/Traductor.js"></script>
+</body>
+</html>

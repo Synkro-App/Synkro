@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/Universo.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-container-universo">
+        <!-- Los contenedores de la colección Universo se inyectarán aquí dinámicamente -->
+    </main>
+
+    <!-- Botón de pedido personalizado situado abajo del todo -->
+    <div class="footer-actions-container">
+        <button type="button" id="btn_pedido_personalizado" class="btn-default btn-block"></button>
+    </div>
+
+    <!-- POP-UP / MODAL FORMULARIO PEDIDO PERSONALIZADO -->
+    <div id="modal-pedido-personalizado" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal_titulo_personalizado" class="modal-title">Pedido Personalizado</h2>
+            
+            <form id="form-pedido-personalizado" class="modal-form">
+                
+                <!-- Campo Forma de Contacto -->
+                <div class="form-group">
+                    <label id="lbl_forma_contacto" for="select-via"></label>
+                    <select id="select-via" required>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Email">Email</option>
+                    </select>
+                </div>
+
+                <!-- Campo Dato de Contacto -->
+                <div class="form-group">
+                    <label id="lbl_dato_contacto" for="input-contacto"></label>
+                    <input type="text" id="input-contacto" required autocomplete="off">
+                </div>
+
+                <!-- Campo Desarrolla Idea -->
+                <div class="form-group">
+                    <label id="lbl_desarrolla_idea" for="textarea-idea"></label>
+                    <textarea id="textarea-idea" rows="4" required></textarea>
+                </div>
+
+                <!-- Campo Permiso Grabar YouTube (permiso_publicar) -->
+                <div class="form-group">
+                    <label id="lbl_permiso_grabar" for="select-permiso-publicar"></label>
+                    <select id="select-permiso-publicar" required>
+                        <option value="NO" id="opcion_no_1">NO</option>
+                        <option value="SI" id="opcion_si_1">SÍ</option>
+                    </select>
+                </div>
+
+                <!-- BLOQUE CONDICIONAL 1: Permiso RRSS (Aparece si Grabar es SI) -->
+                <div id="bloque-permiso-rrss" class="form-group hidden">
+                    <label id="lbl_permiso_rrss" for="select-permiso-rrss"></label>
+                    <select id="select-permiso-rrss">
+                        <option value="NO" id="opcion_no_2">NO</option>
+                        <option value="SI" id="opcion_si_2">SÍ</option>
+                    </select>
+                </div>
+
+                <!-- BLOQUE CONDICIONAL 2: Deseas Etiquetar (Aparece si RRSS es SI) -->
+                <div id="bloque-deseas-etiquetar" class="form-group hidden">
+                    <label id="lbl_deseas_etiquetar" for="select-etiquetar"></label>
+                    <select id="select-etiquetar">
+                        <option value="NO" id="opcion_no_3">NO</option>
+                        <option value="SI" id="opcion_si_3">SÍ</option>
+                    </select>
+                </div>
+
+                <!-- BLOQUE CONDICIONAL 3: Inputs de Redes Sociales (Aparece si Etiquetar es SI) -->
+                <div id="bloque-inputs-etiquetas" class="form-group-row hidden">
+                    <div class="form-group flex-1">
+                        <label for="input-user-tiktok">TikTok User:</label>
+                        <input type="text" id="input-user-tiktok" placeholder="@usuario">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="input-user-instagram">Instagram User:</label>
+                        <input type="text" id="input-user-instagram" placeholder="@usuario">
+                    </div>
+                </div>
+
+                <!-- Botones de Acción del Modal -->
+                <div class="modal-buttons-row">
+                    <button type="button" id="btn_cancelar" class="btn-default"></button>
+                    <button type="submit" id="btn_enviar_peticion" class="btn-default"></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- POP-UP / MODAL FORMULARIO HACER PEDIDO ARTÍCULO -->
+    <div id="modal-hacer-pedido" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal_titulo_pedido" class="modal-title">Hacer Pedido</h2>
+            
+            <form id="form-hacer-pedido" class="modal-form">
+                
+                <!-- Vía de contacto -->
+                <div class="form-group">
+                    <label id="lbl_forma_contacto_pedido" for="select-via-pedido"></label>
+                    <select id="select-via-pedido" required>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Email">Email</option>
+                    </select>
+                </div>
+
+                <!-- Dato de contacto -->
+                <div class="form-group">
+                    <label id="lbl_dato_contacto_pedido" for="input-contacto-pedido"></label>
+                    <input type="text" id="input-contacto-pedido" required autocomplete="off">
+                </div>
+
+                <!-- Título separador de opciones del artículo -->
+                <div class="form-section-title" id="lbl_opciones_producto">Selecciona las opciones de tu pedido:</div>
+
+                <!-- Contenedor dinámico donde se inyectarán los selects de tamaño, kit, etc. -->
+                <div id="contenedor-opciones-dinamicas" class="form-options-block"></div>
+
+                <!-- Mensaje opcional explicativo -->
+                <div class="form-group">
+                    <label id="lbl_mensaje_opcional" for="textarea-mensaje-pedido"></label>
+                    <textarea id="textarea-mensaje-pedido" rows="3"></textarea>
+                </div>
+
+                <!-- Cuestionario de Permisos para Redes Sociales del Artículo -->
+                <div class="form-group">
+                    <label id="lbl_permiso_grabar_pedido" for="select-permiso-publicar-pedido"></label>
+                    <select id="select-permiso-publicar-pedido" required>
+                        <option value="NO" id="opcion_no_pedido_1">NO</option>
+                        <option value="SI" id="opcion_si_pedido_1">SÍ</option>
+                    </select>
+                </div>
+
+                <div id="bloque-permiso-rrss-pedido" class="form-group hidden">
+                    <label id="lbl_permiso_rrss_pedido" for="select-permiso-rrss-pedido"></label>
+                    <select id="select-permiso-rrss-pedido">
+                        <option value="NO" id="opcion_no_pedido_2">NO</option>
+                        <option value="SI" id="opcion_si_pedido_2">SÍ</option>
+                    </select>
+                </div>
+
+                <div id="bloque-deseas-etiquetar-pedido" class="form-group hidden">
+                    <label id="lbl_deseas_etiquetar_pedido" for="select-etiquetar-pedido"></label>
+                    <select id="select-etiquetar-pedido">
+                        <option value="NO" id="opcion_no_pedido_3">NO</option>
+                        <option value="SI" id="opcion_si_pedido_3">SÍ</option>
+                    </select>
+                </div>
+
+                <div id="bloque-inputs-etiquetas-pedido" class="form-group-row hidden">
+                    <div class="form-group flex-1">
+                        <label for="input-user-tiktok-pedido">TikTok User:</label>
+                        <input type="text" id="input-user-tiktok-pedido" placeholder="@usuario">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="input-user-instagram-pedido">Instagram User:</label>
+                        <input type="text" id="input-user-instagram-pedido" placeholder="@usuario">
+                    </div>
+                </div>
+
+                <!-- Botones de Acción del Modal de Pedido -->
+                <div class="modal-buttons-row">
+                    <button type="button" id="btn_cancelar_pedido" class="btn-default"></button>
+                    <button type="submit" id="btn_enviar_pedido" class="btn-default"></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/Universo.js"></script>
+</body>
+</html>
