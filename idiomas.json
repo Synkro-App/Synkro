@@ -682,5 +682,579 @@
     "en": "Your message has been sent successfully.",
     "fr": "Votre message a été envoyé avec succès.",
     "ro": "Mesajul tău a fost trimis cu succes."
-  }
+  },
+  "detectar_idioma": {
+    "es": "Detectar idioma",
+    "en": "Detectar idioma",
+    "fr": "Détecter la langue",
+    "ro": "Detectează limba"
+  },
+  "escribe_texto_traducir": {
+    "es": "Escribe el texto a traducir...",
+    "en": "Type to translate...",
+    "fr": "Tapez le texte a traduire...",
+    "ro": "Scrie textul de tradus..."
+  },
+  "traduccion": {
+    "es": "Traducción...",
+    "en": "Translation...",
+    "fr": "Traduction...",
+    "ro": "Traducere..."
+  },
+  "traducir_accion": {
+    "es": "Traducir",
+    "en": "Translate",
+    "fr": "Traduire",
+    "ro": "Traduce"
+  },
+  "ahorcado_elige_dificultad": {
+    "es": "Elige Dificultad",
+    "en": "Choose Difficulty",
+    "fr": "Choisissez la Difficulté",
+    "ro": "Alege Dificultatea"
+  },
+  "ahorcado_modo_facil": {
+    "es": "Fácil",
+    "en": "Easy",
+    "fr": "Facile",
+    "ro": "Ușor"
+  },
+  "ahorcado_modo_medio": {
+    "es": "Medio",
+    "en": "Medium",
+    "fr": "Moyen",
+    "ro": "Mediu"
+  },
+  "ahorcado_modo_dificil": {
+    "es": "Difícil",
+    "en": "Hard",
+    "fr": "Difficile",
+    "ro": "Dificil"
+  },
+  "ahorcado_intentos": {
+    "es": "Intentos",
+    "en": "Attempts",
+    "fr": "Tentatives",
+    "ro": "Încercări"
+  },
+  "ahorcado_has_ganado": {
+    "es": "¡Has ganado! 🎉",
+    "en": "You won! 🎉",
+    "fr": "Vous avez gagné ! 🎉",
+    "ro": "Ai câștigat! 🎉"
+  },
+  "ahorcado_has_perdido": {
+    "es": "¡Perdiste!",
+    "en": "You lost!",
+    "fr": "Vous avez perdu !",
+    "ro": "Ai pierdut!"
+  },
+  "ahorcado_siguiente_palabra": {
+    "es": "Siguiente Palabra",
+    "en": "Next Word",
+    "fr": "Mot Suivant",
+    "ro": "Următorul Cuvânt"
+  },
+  "snake_elige_dificultad": {
+    "es": "Elige Dificultad",
+    "en": "Choose Difficulty",
+    "fr": "Choisissez la Difficulté",
+    "ro": "Alege Dificultatea"
+  },
+  "snake_modo_facil": {
+    "es": "Fácil",
+    "en": "Easy",
+    "fr": "Facile",
+    "ro": "Ușor"
+  },
+  "snake_modo_medio": {
+    "es": "Medio",
+    "en": "Medium",
+    "fr": "Moyen",
+    "ro": "Mediu"
+  },
+  "snake_modo_dificil": {
+    "es": "Difícil",
+    "en": "Hard",
+    "fr": "Difficile",
+    "ro": "Dificil"
+  },
+  "snake_game_over": {
+    "es": "Fin de la partida",
+    "en": "Game Over",
+    "fr": "Fin de la partie",
+    "ro": "Sfârșitul jocului"
+  },
+  "snake_volver_a_jugar": {
+    "es": "Volver a jugar",
+    "en": "Play Again",
+    "fr": "Rejouer",
+    "ro": "Joacă din nou"
+  },
+  "snake_terminar_partida": {
+    "es": "Terminar Partida",
+    "en": "End Game",
+    "fr": "Terminer la Partie",
+    "ro": "Termină Jocul"
+  },
+  "pacman_titulo": {
+    "es": "Pac-Man",
+    "en": "Pac-Man",
+    "fr": "Pac-Man",
+    "ro": "Pac-Man"
+  },
+  "pacman_jugar_partida": {
+    "es": "Jugar Partida (3 Niveles)",
+    "en": "Play Match (3 Levels)",
+    "fr": "Jouer Partie (3 Niveaux)",
+    "ro": "Joacă Partida (3 Niveluri)"
+  },
+  "pacman_nivel_superado": {
+    "es": "¡Nivel Completado!",
+    "en": "Level Cleared!",
+    "fr": "Niveau terminé !",
+    "ro": "Nivel finalizat!"
+  },
+  "pacman_preparando_mapa": {
+    "es": "Has superado con éxito el nivel. Preparando el siguiente...",
+    "en": "You have successfully cleared the level. Preparing the next one...",
+    "fr": "Tu as réussi le niveau avec succès. Préparation du suivant...",
+    "ro": "Ai trecut cu succes nivelul. Pregătindu-te pentru următorul..."
+  },
+  "pacman_continuar": {
+    "es": "Siguiente Nivel",
+    "en": "Next Level",
+    "fr": "Niveau suivant",
+    "ro": "Nivelul următor"
+  },
+  "pacman_victoria_total": {
+    "es": "¡FELICIDADES, CAMPEON/A!<br>Campaña Completada.<br>Recibes",
+    "en": "CONGRATULATIONS, CHAMPION!<br>Campaign Completed.<br>You receive",
+    "fr": "FÉLICITATIONS, CHAMPION/NE !<br>Campagne Terminée.<br>Tu reçois",
+    "ro": "FELICITĂRI, CAMPION/Ă!<br>Campanie Finalizată.<br>Primești"
+  },
+  "pacman_fin_nivel": {
+    "es": "Fin de la partida<br>Muerto en el",
+    "en": "Game Over<br>Died on",
+    "fr": "Fin de la partie<br>Mort à",
+    "ro": "Sfârșitul jocului<br>Mort în"
+  },
+ "titulo_rutinas": {
+    "es": "Mis Rutinas Diarias",
+    "en": "My Daily Routines",
+    "fr": "Mes Routines Quotidiennes",
+    "ro": "Rutinele Mele Zilnice"
+  },
+  "btn_crear_dia": {
+    "es": "Añadir Día",
+    "en": "Add Day",
+    "fr": "Ajouter un jour",
+    "ro": "Adaugă Zi"
+  },
+  "rutinas_txt_vacio": {
+    "es": "Configuración del día en desarrollo...",
+    "en": "Day configuration under development...",
+    "fr": "Configuration du jour en développement...",
+    "ro": "Configurarea zilei în curs de dezvoltare..."
+  },
+  "rutinas_alert_selecciona": {
+    "es": "Por favor, selecciona una fecha válida.",
+    "en": "Please select a valid date.",
+    "fr": "Veuillez sélectionner une date valide.",
+    "ro": "Vă rugăm să selectați o dată validă."
+  },
+  "txt_cargando": {
+    "es": "Cargando...",
+    "en": "Loading...",
+    "fr": "Chargement...",
+    "ro": "Încărcare..."
+  },
+  "txt_linea_tiempo": {
+    "es": "Linea de Tiempo",
+    "en": "Timeline",
+    "fr": "Ligne de Temps",
+    "ro": "Linia de Timp"
+  },
+  "txt_estructura_bloques": {
+    "es": "Estructura de Bloques",
+    "en": "Block Structure",
+    "fr": "Structure de Blocs",
+    "ro": "Structura de Blocuri"
+  },
+  "btn_modo_ver": {
+    "es": "Modo Ver",
+    "en": "View Mode",
+    "fr": "Mode Voir",
+    "ro": "Mod Vizualizare"
+  },
+  "btn_modo_editar": {
+    "es": "Modo Editar",
+    "en": "Edit Mode",
+    "fr": "Mode Modifier",
+    "ro": "Mod Editare"
+  },
+  "titulo_confirmar_borrado": { 
+    "es": "Confirmar Eliminación", 
+    "en": "Confirm Deletion",
+    "fr": "Confirmer la suppression",
+    "ro": "Confirmă ștergerea" 
+  },
+  "titulo_confirmar_borrado": { 
+    "es": "Confirmar Eliminación", 
+    "en": "Confirm Deletion",
+    "fr": "Confirmer la suppression",
+    "ro": "Confirmă ștergerea" 
+  },
+  "msg_borrar_bloque": { 
+    "es": "¿Seguro que deseas eliminar por completo el bloque \"%s\"?", 
+    "en": "Are you sure you want to delete the block \"%s\"?",
+    "fr": "Es-tu sûr de vouloir supprimer completamente le bloc \"%s\" ?",
+    "ro": "Ești sigur că vrei să ștergi complet blocul \"%s\"?"
+  },
+  "msg_borrar_categoria": { 
+    "es": "¿Seguro que deseas eliminar la categoría \"%s\" junto con sus tareas?", 
+    "en": "Are you sure you want to delete the category \"%s\" and its tasks?",
+    "fr": "Es-tu sûr de vouloir supprimer la catégorie \"%s\" ainsi que ses tâches ?",
+    "ro": "Ești sigur că vrei să ștergi categoria \"%s\" împreună cu sarcinile ei?" 
+  },
+  "msg_borrar_tarea": { 
+    "es": "¿Seguro que deseas eliminar la tarea \"%s\"?", 
+    "en": "Are you sure you want to delete the task \"%s\"?",
+    "fr": "Es-tu sûr de vouloir supprimer la tâche \"%s\" ?",
+    "ro": "Ești sigur că vrei să ștergi sarcina \"%s\"?"
+  },
+  "btn_cancelar": { 
+    "es": "Cancelar", 
+    "en": "Cancel",
+    "fr": "Annuler",
+    "ro": "Anulează" 
+  },
+  "btn_eliminar": { 
+    "es": "Eliminar", 
+    "en": "Delete",
+    "fr": "Supprimer",
+    "ro": "Șterge" 
+  },
+  "btn_pedido_personalizado": {
+    "es": "Pedido personalizado que no está en el escaparate",
+    "en": "Custom order not in the showcase",
+    "fr": "Commande personnalisée hors vitrine",
+    "ro": "Comandă personalizată care nu este în vitrină"
+  },
+  "modal_titulo_personalizado": {
+    "es": "Pedido Personalizado",
+    "en": "Custom Order",
+    "fr": "Commande Personnalisée",
+    "ro": "Comandă Personalizată"
+  },
+  "lbl_forma_contacto": {
+    "es": "Forma de contacto:",
+    "en": "Contact method:",
+    "fr": "Mode de contact:",
+    "ro": "Metoda de contact:"
+  },
+  "lbl_dato_contacto": {
+    "es": "Teléfono o Email de contacto:",
+    "en": "Contact Phone or Email:",
+    "fr": "Téléphone ou Email de contact:",
+    "ro": "Telefon sau Email de contact:"
+  },
+  "lbl_desarrolla_idea": {
+    "es": "Desarrolla tu idea y explícame qué quieres:",
+    "en": "Develop your idea and explain what you want:",
+    "fr": "Développez votre idée et expliquez ce que vous voulez:",
+    "ro": "Dezvoltă-ți ideea și explică ce îți dorești:"
+  },
+  "lbl_permiso_grabar": {
+    "es": "Si es posible hacer el pedido, y el precio acordado conmigo es viable, ¿me permitirías grabar y publicar el proceso en YouTube?",
+    "en": "If it is possible to make the order, and the agreed price is viable, would you allow me to record and publish the process on YouTube?",
+    "fr": "S'il est possible de passer la commande et que le prix convenu est viable, me permettriez-vous d'enregistrer et de publier le processus sur YouTube?",
+    "ro": "Dacă este posibilă realizarea comenzii, iar prețul convenit este viabil, mi-ai permite să înregistrez și să public procesul pe YouTube?"
+  },
+  "lbl_permiso_rrss": {
+    "es": "¿Me permitirías también publicar fotos o vídeos cortos del proceso en otras Redes Sociales (TikTok, Instagram, etc.)?",
+    "en": "Would you also allow me to post photos or short videos of the process on other Social Media (TikTok, Instagram, etc.)?",
+    "fr": "Me permettriez-vous également de publier des photos ou de courtes vidéos du processus sur d'autres réseaux sociaux (TikTok, Instagram, etc.)?",
+    "ro": "Mi-ai permite, de asemenea, să postez fotografii sau videoclipuri scurte din proces pe alte rețele sociale (TikTok, Instagram, etc.)?"
+  },
+  "lbl_deseas_etiquetar": {
+    "es": "Me darías el permiso para grabar y publicar en rrss, ¿te gustaría que te etiquetará?",
+    "en": "Would you give me permission to record and publish on social media, would you like to be tagged?",
+    "fr": "Me donneriez-vous la permission d'enregistrer et de publier sur les réseaux sociaux, aimeriez-vous être identifié?",
+    "ro": "Mi-ai da permisiunea de a înregistra și publica pe rețelele sociale, ți-ar plăcea să fii etichetat?"
+  },
+  "btn_cancelar": {
+    "es": "Cancelar",
+    "en": "Cancel",
+    "fr": "Annuler",
+    "ro": "Anulează"
+  },
+  "btn_enviar_peticion": {
+    "es": "Enviar petición",
+    "en": "Send request",
+    "fr": "Envoyer la demande",
+    "ro": "Trimite cererea"
+  },
+  "opcion_si": {
+    "es": "SÍ",
+    "en": "YES",
+    "fr": "OUI",
+    "ro": "DA"
+  },
+  "opcion_no": {
+    "es": "NO",
+    "en": "NO",
+    "fr": "NON",
+    "ro": "NU"
+  },
+  "ph_desarrolla_idea": {
+    "es": "Cuéntame detalladamente cómo te gustaría tu diseño personalizado.",
+    "en": "Tell me in detail how you would like your custom design.",
+    "fr": "Racontez-moi en détail comment vous aimeriez votre design personnalisé.",
+    "ro": "Spune-mi în detaliu cum ți-ai dori designul personalizat."
+  },
+  "btn_hacer_pedido": {
+    "es": "Hacer pedido",
+    "en": "Place order",
+    "fr": "Passer commande",
+    "ro": "Plasează comanda"
+  },
+  "modal_titulo_pedido": {
+    "es": "Hacer Pedido",
+    "en": "Place Order",
+    "fr": "Passer Commande",
+    "ro": "Plasează Comanda"
+  },
+  "lbl_opciones_producto": {
+    "es": "Selecciona las opciones de tu pedido:",
+    "en": "Select your order options:",
+    "fr": "Sélectionnez les options de votre commande:",
+    "ro": "Selectează opțiunile comenzii tale:"
+  },
+  "lbl_mensaje_opcional": {
+    "es": "Mensaje o aclaración (opcional):",
+    "en": "Message or clarification (optional):",
+    "fr": "Message ou clarification (optionnel):",
+    "ro": "Mesaj sau clarificare (opțional):"
+  },
+  "ph_mensaje_opcional": {
+    "es": "¿Quieres añadir algún detalle sobre tu pedido?",
+    "en": "Do you want to add any details about your order?",
+    "fr": "Voulez-vous ajouter des détails sur votre commande?",
+    "ro": "Vrei să adaugi detalii despre comanda ta?"
+  },
+  "btn_enviar": {
+    "es": "Enviar",
+    "en": "Send",
+    "fr": "Envoyer",
+    "ro": "Trimite"
+  },
+  "txt_categorias_titulo": {
+    "es": "Categorías",
+    "en": "Categories",
+    "fr": "Catégories",
+    "ro": "Categorii"
+  },
+  "btn_peliculas": {
+    "es": "Películas",
+    "en": "Movies",
+    "fr": "Films",
+    "ro": "Filme"
+  },
+  "btn_series": {
+    "es": "Series",
+    "en": "TV Shows",
+    "fr": "Séries",
+    "ro": "Seriale"
+  },
+  "btn_listas": {
+    "es": "Listas",
+    "en": "Lists",
+    "fr": "Listes",
+    "ro": "Liste"
+  },
+  "lbl_edad_minima": {
+    "es": "Edad Mínima",
+    "en": "Minimum Age",
+    "fr": "Âge Minimum",
+    "ro": "Vârsta Minimă"
+  },
+  "lbl_fecha_estreno": {
+    "es": "Estreno",
+    "en": "Release",
+    "fr": "Sortie",
+    "ro": "Lansare"
+  },
+  "lbl_duracion": {
+    "es": "Duración",
+    "en": "Duration",
+    "fr": "Durée",
+    "ro": "Durată"
+  },
+  "lbl_sinopsis": {
+    "es": "Sinopsis",
+    "en": "Synopsis",
+    "fr": "Synopsis",
+    "ro": "Sinopsis"
+  },
+  "text_categorias": {
+    "es": "Categorías",
+    "en": "Categories",
+    "fr": "Catégories",
+    "ro": "Categorii"
+  },
+  "btn_peliculas": {
+    "es": "Películas",
+    "en": "Movies",
+    "fr": "Films",
+    "ro": "Filme"
+  },
+  "btn_series": {
+    "es": "Series",
+    "en": "Series",
+    "fr": "Séries",
+    "ro": "Seriale"
+  },
+  "btn_listas": {
+    "es": "Listas",
+    "en": "Lists",
+    "fr": "Listes",
+    "ro": "Liste"
+  },
+  "label_edad_recomendada": {
+    "es": "Edad recomendada:",
+    "en": "Recommended age:",
+    "fr": "Âge recommandé:",
+    "ro": "Vârstă recomandată:"
+  },
+  "label_fecha_estreno": {
+    "es": "Fecha de estreno:",
+    "en": "Release date:",
+    "fr": "Date de sortie:",
+    "ro": "Data lansării:"
+  },
+  "label_duracion": {
+    "es": "Duración:",
+    "en": "Duration:",
+    "fr": "Durée:",
+    "ro": "Durată:"
+  },
+  "label_categorias": {
+    "es": "Categorías:",
+    "en": "Categories:",
+    "fr": "Catégories:",
+    "ro": "Categorii:"
+  },
+  "label_listas": {
+    "es": "Listas:",
+    "en": "Lists:",
+    "fr": "Listes:",
+    "ro": "Liste:"
+  },
+  "label_actores": {
+    "es": "Actores:",
+    "en": "Actors:",
+    "fr": "Acteurs:",
+    "ro": "Actori:"
+  },
+  "btn_agregar_favoritas": {
+    "es": "Agregar a favoritas",
+    "en": "Add to favorites",
+    "ca": "Afegir a preferits",
+    "eu": "Gehitu gogokoetara",
+    "gl": "Engadir a favoritas"
+  },
+  "btn_eliminar_favoritas": {
+    "es": "Eliminar de favoritas",
+    "en": "Remove from favorites",
+    "fr": "Retirer des favoris",
+    "ro": "Șterge din favorite"
+  },
+  "btn_agregar_vistas": {
+    "es": "Agregar a vistas",
+    "en": "Add to watched",
+    "ca": "Afegir a vistes",
+    "eu": "Gehitu ikusitakora",
+    "gl": "Engadir a vistas"
+  },
+  "btn_eliminar_vistas": {
+    "es": "Eliminar de vistas",
+    "en": "Remove from watched",
+    "fr": "Retirer des vues",
+    "ro": "Șterge din vizionate"
+  },
+  "btn_ver_trailer": {
+    "es": "Ver trailer",
+    "en": "Watch trailer",
+    "ca": "Veure tràiler",
+    "eu": "Ikusi trailerra",
+    "gl": "Ver tráiler"
+  },
+  "btn_ver_pelicula": {
+    "es": "Ver película",
+    "en": "Watch movie",
+    "ca": "Veure pel·lícula",
+    "eu": "Ikusi filma",
+    "gl": "Ver película"
+  },
+    "btn_clasico": {
+        "es": "Clásico",
+        "en": "Classic",
+        "fr": "Classique",
+        "ro": "Clasic"
+    },
+    "btn_tres_en_movimiento": {
+        "es": "Tres en movimiento",
+        "en": "Three in motion",
+        "fr": "Trois en mouvement",
+        "ro": "Trei în mișcare"
+    },
+    "btn_ia": {
+        "es": "IA",
+        "en": "AI",
+        "fr": "IA",
+        "ro": "AI"
+    },
+    "btn_multijugador": {
+        "es": "Multijugador",
+        "en": "Multiplayer",
+        "fr": "Multijoueur",
+        "ro": "Multijucător"
+    },
+    "btn_facil": {
+        "es": "Fácil",
+        "en": "Easy",
+        "fr": "Facile",
+        "ro": "Ușor"
+    },
+    "btn_medio": {
+        "es": "Medio",
+        "en": "Medium",
+        "fr": "Moyen",
+        "ro": "Mediu"
+    },
+    "btn_dificil": {
+        "es": "Difícil",
+        "en": "Hard",
+        "fr": "Difficile",
+        "ro": "Greu"
+    },
+    "btn_jugar_y_pasar": {
+        "es": "Jugar y pasar",
+        "en": "Play and pass",
+        "fr": "Jouer et passer",
+        "ro": "Joacă și predă"
+    },
+    "btn_con_amigo": {
+        "es": "Con amigo",
+        "en": "With friend",
+        "fr": "Avec un ami",
+        "ro": "Cu un prieten"
+    },
+    "btn_aleatorio": {
+        "es": "Aleatorio",
+        "en": "Random",
+        "fr": "Aléatoire",
+        "ro": "Aleator"
+    }
 }
