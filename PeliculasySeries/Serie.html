@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Serie</title>
+    <link class="icon" type="image/jpeg" href="../Synkro.jpg">
+    <link rel="stylesheet" href="css/Serie.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text"></span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="pelicula-header-container">
+            <h1 id="titulo-serie" class="titulo-pelicula"></h1>
+        </div>
+
+        <div class="pelicula-card-container">
+            <div class="pelicula-right-column">
+                <div class="meta-info-row">
+                    <div class="meta-item">
+                        <span id="label-edad-recomendada" class="lbl-meta"></span>
+                        <span id="val-edad-minima" class="val-meta"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="label-fecha-estreno" class="lbl-meta"></span>
+                        <span id="val-fecha-estreno" class="val-meta"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="label-fecha-fin" class="lbl-meta"></span>
+                        <span id="val-fecha-fin" class="val-meta"></span>
+                    </div>
+                </div>
+
+                <div class="meta-info-row">
+                    <div class="meta-item">
+                        <span id="label-total-temporadas" class="lbl-meta"></span>
+                        <span id="val-total-temporadas" class="val-meta"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="label-total-episodios" class="lbl-meta"></span>
+                        <span id="val-total-episodios" class="val-meta"></span>
+                    </div>
+                </div>
+
+                <div class="sinopsis-container">
+                    <p id="val-sinopsis" class="text-sinopsis"></p>
+                </div>
+
+                <div class="arrays-container">
+                    <div class="array-row">
+                        <span id="label-categorias" class="lbl-array"></span>
+                        <span id="val-categorias" class="val-array"></span>
+                    </div>
+                    <div class="array-row">
+                        <span id="label-listas" class="lbl-array"></span>
+                        <span id="val-listas" class="val-array"></span>
+                    </div>
+                    <div class="array-row">
+                        <span id="label-actores" class="lbl-array"></span>
+                        <span id="val-actores" class="val-array"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contenedor externo para las acciones principales -->
+    <section class="acciones-pelicula-container">
+        <button type="button" id="btn-agregar-favoritas" class="btn-default"></button>
+        <button type="button" id="btn-agregar-vistas" class="btn-default"></button>
+    </section>
+
+    <!-- Contenedor principal para las temporadas -->
+    <section id="contenedor-temporadas" class="temporadas-main-container"></section>
+
+    <script type="module" src="js/Serie.js"></script>
+</body>
+</html>
