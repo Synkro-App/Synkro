@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Con Amigo - Tres en Raya - Synkro</title>
+    <link rel="icon" href="../../Synkro.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/salaamigotres.css">
+</head>
+<body>
+
+    <!-- Cabecera de Usuario -->
+    <header class="hub-real-header">
+        <div class="header-real-row clickable-row" id="fila-perfil">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div class="header-real-row row-meta">
+            <div class="meta-inline-item clickable-row" id="fila-novas">
+                <img src="../../NovaPoints.png" alt="Novas" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label">Suscripción:</span>
+                <span id="subs-display-value" class="subs-value">-</span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button id="btn-logout" class="btn-default">Cerrar sesión</button>
+            <button id="btn_volver" class="btn-default">Volver</button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal / Pregunta Código / Tablero -->
+    <main class="main-container">
+        <div id="seccion-opciones" class="card-box">
+            <h2 id="txt-titulo-amigo">Tres en Raya con Amigo</h2>
+            <p id="txt-pregunta-accion">¿Qué deseas hacer?</p>
+            <div class="actions-group">
+                <button id="btn-tengo-codigo" class="btn-main">Tengo un código</button>
+                <button id="btn-generar-codigo" class="btn-main">Generar código</button>
+            </div>
+        </div>
+
+        <div id="seccion-ingresar-codigo" class="card-box" style="display: none;">
+            <h3 id="txt-titulo-introduce">Introduce el código</h3>
+            <input type="text" id="input-codigo-amigo" placeholder="Ej: 0000000000" maxlength="10">
+            <button id="btn-unirse-partida" class="btn-main">Unirse</button>
+        </div>
+
+        <div id="seccion-espera-codigo" class="card-box" style="display: none;">
+            <h3 id="txt-titulo-generado">Código Generado</h3>
+            <p id="txt-comparte-amigo">Comparte este código con tu amigo:</p>
+            <div id="codigo-generado-display" class="codigo-box">---</div>
+            <p id="txt-esperando-jugador" class="espera-texto">Esperando a que se una el jugador 2...</p>
+        </div>
+
+        <div id="seccion-tablero" class="card-box" style="display: none;">
+            <h3 id="txt-titulo-juego">Tres en Raya</h3>
+            
+            <!-- Indicadores de Jugadores en línea -->
+            <div class="jugadores-info-container-horizontal">
+                <div class="info-jugador-item" id="info-jugador-1">
+                    <span id="txt-label-jugador1" class="label-rol">Jugador 1 (X):</span>
+                    <img id="img-j1-avatar" src="../../default-profile.png" alt="Avatar J1" class="avatar-mini">
+                    <span id="txt-j1-nombre" class="nombre-jugador">-</span>
+                </div>
+                <div class="info-jugador-item" id="info-jugador-2">
+                    <span id="txt-label-jugador2" class="label-rol">Jugador 2 (O):</span>
+                    <img id="img-j2-avatar" src="../../default-profile.png" alt="Avatar J2" class="avatar-mini">
+                    <span id="txt-j2-nombre" class="nombre-jugador">-</span>
+                </div>
+            </div>
+
+            <p id="txt-estado-turno" class="espera-texto">Turno de partida</p>
+            <div class="tablero-grid">
+                <div class="celda-juego" data-index="0"></div>
+                <div class="celda-juego" data-index="1"></div>
+                <div class="celda-juego" data-index="2"></div>
+                <div class="celda-juego" data-index="3"></div>
+                <div class="celda-juego" data-index="4"></div>
+                <div class="celda-juego" data-index="5"></div>
+                <div class="celda-juego" data-index="6"></div>
+                <div class="celda-juego" data-index="7"></div>
+                <div class="celda-juego" data-index="8"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script Principal -->
+    <script type="module" src="js/salaamigotres.js"></script>
+</body>
+</html>

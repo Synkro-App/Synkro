@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala Aleatoria Clásico - Tres en raya - Synkro</title>
+    <link rel="icon" href="../../Synkro.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/salaaleatorioclasico.css">
+</head>
+<body>
+
+    <!-- Cabecera de Usuario -->
+    <header class="hub-real-header">
+        <div class="header-real-row clickable-row" id="fila-perfil">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div class="header-real-row row-meta">
+            <div class="meta-inline-item clickable-row" id="fila-novas">
+                <img src="../../NovaPoints.png" alt="Novas" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label">Suscripción:</span>
+                <span id="subs-display-value" class="subs-value">-</span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button id="btn-logout" class="btn-default">Cerrar sesión</button>
+            <button id="btn_volver" class="btn-default">Volver</button>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content-hub">
+        <div class="catalogo-header-container">
+            <h1 id="titulo-catalogo-juego" class="titulo-catalogo-text">Sala Aleatoria</h1>
+        </div>
+
+        <div id="contenedor-juego" class="juego-container">
+            <div id="estado-sala-texto" class="estado-sala-text">Buscando sala disponible...</div>
+            
+            <!-- Tablero de Tres en Raya (Oculto hasta que ambos jugadores estén listos) -->
+            <div id="tablero-tresenraya" class="tablero-oculto">
+                
+                <!-- HUD con la información visual de ambos jugadores (Imagen y Nombre) -->
+                <div class="hud-jugadores-versus">
+                    <div class="jugador-hud-card">
+                        <img id="hud-img-j1" src="../../default-profile.png" alt="Jugador 1" class="avatar-hud-img">
+                        <div class="hud-info-text">
+                            <span class="hud-rol-label">Jugador 1 (X)</span>
+                            <span id="hud-nombre-j1" class="hud-nombre-text">-</span>
+                        </div>
+                    </div>
+                    <span class="versus-text">VS</span>
+                    <div class="jugador-hud-card">
+                        <img id="hud-img-j2" src="../../default-profile.png" alt="Jugador 2" class="avatar-hud-img">
+                        <div class="hud-info-text">
+                            <span class="hud-rol-label">Jugador 2 (O)</span>
+                            <span id="hud-nombre-j2" class="hud-nombre-text">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-partida-hud">
+                    <span id="info-turno-jugador">Turno de: X</span>
+                </div>
+
+                <div class="grid-tresenraya">
+                    <button class="celda-tablero" data-index="0"></button>
+                    <button class="celda-tablero" data-index="1"></button>
+                    <button class="celda-tablero" data-index="2"></button>
+                    <button class="celda-tablero" data-index="3"></button>
+                    <button class="celda-tablero" data-index="4"></button>
+                    <button class="celda-tablero" data-index="5"></button>
+                    <button class="celda-tablero" data-index="6"></button>
+                    <button class="celda-tablero" data-index="7"></button>
+                    <button class="celda-tablero" data-index="8"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pop-up Dinámico de Partida / Eventos -->
+    <div id="modal-popup-overlay" class="modal-overlay-oculto">
+        <div class="modal-popup-content">
+            <p id="modal-popup-mensaje">Mensaje del sistema</p>
+            <div id="modal-popup-botones" class="modal-botones-container">
+                <!-- Botones inyectados dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Principal -->
+    <script type="module" src="js/salaaleatorioclasico.js"></script>
+</body>
+</html>

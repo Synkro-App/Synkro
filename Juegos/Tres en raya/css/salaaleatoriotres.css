@@ -1,0 +1,164 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el degradado alineado arriba */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    gap: 8px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón estándar (para la cabecera) */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* --- CONTENEDOR PRINCIPAL DEL MAIN --- */
+.main-content-hub {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.catalogo-header-container {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.titulo-catalogo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.juego-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 680px) {
+    .hub-real-header {
+        padding: 15px;
+    }
+
+    .titulo-catalogo-text {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,361 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el degradado alineado arriba */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    gap: 8px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón estándar (para la cabecera) */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* --- CONTENEDOR PRINCIPAL DEL MAIN --- */
+.main-content-hub {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.catalogo-header-container {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.titulo-catalogo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.juego-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.estado-sala-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+/* --- ESTILOS DEL TABLERO Y HUD DE JUGADORES --- */
+.tablero-oculto {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.tablero-oculto.activo {
+    display: flex;
+}
+
+.hud-jugadores-versus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.jugador-hud-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.avatar-hud-img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.hud-info-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.hud-rol-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.hud-nombre-text {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000000;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.versus-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.info-partida-hud {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.grid-tresenraya {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.celda-tablero {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #000000;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.celda-tablero:hover {
+    background-color: #ffffff;
+}
+
+/* --- MODAL / POP-UP DEL SISTEMA --- */
+.modal-overlay-oculto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay-oculto.activo {
+    display: flex;
+}
+
+.modal-popup-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    width: 90%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#modal-popup-mensaje {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.modal-botones-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-modal-accion {
+    background-color: #1e90ff;
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-modal-accion:hover {
+    background-color: #0066cc;
+}
+
+.btn-modal-peligro {
+    background-color: #ff0000;
+    color: #000000;
+}
+
+.btn-modal-peligro:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 680px) {
+    .hub-real-header {
+        padding: 15px;
+    }
+
+    .titulo-catalogo-text {
+        font-size: 1.8rem;
+    }
+
+    .grid-tresenraya {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .celda-tablero {
+        font-size: 2rem;
+    }
+}
