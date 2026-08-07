@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Sala Aleatoria</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/salaaleatorio.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-salaaleatorio">Sala Aleatoria</h1>
+        </div>
+
+        <div id="panel-espera-jugador2" class="game-container" style="text-align: center; padding: 20px;">
+            <p id="texto-estado-sala" style="font-weight: bold; font-size: 1.1rem;"></p>
+        </div>
+
+        <div id="panel-juego-aleatorio" class="game-container" style="display: none;">
+            <div class="score-board">
+                <span id="text-jugador1-aleatorio">Jugador 1: <strong id="score-aleatorio-j1">0</strong></span>
+                <span id="text-jugador2-aleatorio">Jugador 2: <strong id="score-aleatorio-j2">0</strong></span>
+            </div>
+
+            <div id="turno-indicator-aleatorio" style="text-align: center; font-weight: bold; font-size: 1rem;"></div>
+
+            <div class="sections-grid" id="botones-eleccion-aleatorio">
+                <button type="button" id="btn-aleatorio-piedra" class="btn-juego-custom"></button>
+                <button type="button" id="btn-aleatorio-papel" class="btn-juego-custom"></button>
+                <button type="button" id="btn-aleatorio-tijera" class="btn-juego-custom"></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- POP-UP 1: Ganador o Empate -->
+    <div id="modal-popup-resultado" class="popup-overlay-custom" style="display: none;">
+        <div class="popup-box-custom">
+            <p id="texto-popup-resultado" class="popup-text-custom"></p>
+            <div class="popup-buttons-custom">
+                <button type="button" id="btn-res-cerrar" class="btn-default"></button>
+                <button type="button" id="btn-res-volverjugar" class="btn-default" style="background: linear-gradient(135deg, #00aeff, #00eeff);"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP 2: El otro jugador ya no quiere o puede jugar más (Cerrar) -->
+    <div id="modal-popup-abandono" class="popup-overlay-custom" style="display: none;">
+        <div class="popup-box-custom">
+            <p id="texto-popup-abandono" class="popup-text-custom"></p>
+            <div class="popup-buttons-custom">
+                <button type="button" id="btn-abandono-cerrar" class="btn-default"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP 3: Esperando respuesta -->
+    <div id="modal-popup-esperandorespuesta" class="popup-overlay-custom" style="display: none;">
+        <div class="popup-box-custom">
+            <p id="texto-popup-esperandorespuesta" class="popup-text-custom"></p>
+        </div>
+    </div>
+
+    <!-- POP-UP 4: Solicitud de revancha del otro jugador (Rechazar / Aceptar) -->
+    <div id="modal-popup-peticionsaltante" class="popup-overlay-custom" style="display: none;">
+        <div class="popup-box-custom">
+            <p id="texto-popup-peticionsaltante" class="popup-text-custom"></p>
+            <div class="popup-buttons-custom">
+                <button type="button" id="btn-peticion-rechazar" class="btn-default"></button>
+                <button type="button" id="btn-peticion-aceptar" class="btn-default" style="background: linear-gradient(135deg, #00aeff, #00eeff);"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/salaaleatorio.js"></script>
+</body>
+</html>

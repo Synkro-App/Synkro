@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Jugar con Amigo</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/salaamigo.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-salaamigo">Jugar con Amigo</h1>
+        </div>
+
+        <div id="panel-opciones-iniciales" class="sections-grid">
+            <button type="button" id="btn-tengo-codigo" class="btn-juego-custom"></button>
+            <button type="button" id="btn-generar-codigo" class="btn-juego-custom"></button>
+        </div>
+
+        <div id="panel-juego-amigo" class="game-container" style="display: none;">
+            <div class="score-board">
+                <span id="text-jugador1-amigo">Jugador 1: <strong id="score-amigo-j1">0</strong></span>
+                <span id="text-jugador2-amigo">Jugador 2: <strong id="score-amigo-j2">0</strong></span>
+            </div>
+
+            <div id="turno-indicator-amigo" class="game-result-text">Esperando tu elección...</div>
+
+            <div class="sections-grid" id="botones-eleccion-amigo">
+                <button type="button" id="btn-amigo-piedra" class="btn-juego-custom"></button>
+                <button type="button" id="btn-amigo-papel" class="btn-juego-custom"></button>
+                <button type="button" id="btn-amigo-tijera" class="btn-juego-custom"></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Introducir Código -->
+    <div id="modal-tengo-codigo" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modal-titulo-codigo">Introduce el Código</h3>
+            <input type="text" id="input-codigo-amigo" class="modal-input" placeholder="Ej: 0">
+            <div class="modal-buttons">
+                <button type="button" id="btn-cancelar-codigo" class="btn-default">Cancelar</button>
+                <button type="button" id="btn-unirse-codigo" class="btn-default" style="background: linear-gradient(135deg, #00aeff, #00eeff);">Unirse</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Espera General / Estados -->
+    <div id="modal-espera" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3 id="texto-modal-espera">Esperando al segundo jugador...</h3>
+            <div id="contenedor-botones-espera" style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/salaamigo.js"></script>
+</body>
+</html>
