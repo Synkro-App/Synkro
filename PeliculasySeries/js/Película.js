@@ -263,7 +263,7 @@ async function cargarDatosPelicula() {
                     btnCat.className = "btn-red-item";
                     btnCat.textContent = cat;
                     btnCat.addEventListener("click", () => {
-                        localStorage.setItem("categoriaselecciona", cat);
+                        localStorage.setItem("categoriaseleccionada", cat);
                         window.location.href = "Categorías.html";
                     });
                     valCategorias.appendChild(btnCat);
