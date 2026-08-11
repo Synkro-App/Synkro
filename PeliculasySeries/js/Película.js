@@ -42,9 +42,6 @@ let tituloBuscadoGlobal = "";
 let esFavorita = false;
 let esVista = false;
 
-// Instancia global del reproductor dash.js
-let dashPlayerInstance = null;
-
 // --- CÁLCULO RIGUROSO DE EDAD ---
 function calcularEdadCompleta(fechaNacimientoStr) {
     if (!fechaNacimientoStr) return 0;
@@ -505,74 +502,16 @@ function cerrarModalTrailer() {
     if (modalTrailer) modalTrailer.classList.add("hidden");
 }
 
-// --- INYECCIÓN DINÁMICA DE DASH.JS ---
-function cargarLibreriaDashJS() {
-    return new Promise((resolve, reject) => {
-        if (window.dashjs) {
-            resolve();
-            return;
-        }
-        const script = document.createElement("script");
-        script.src = "https://cdn.dashjs.org/v4.7.4/dash.all.min.js";
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error("No se pudo cargar la librería dash.js"));
-        document.head.appendChild(script);
-    });
-}
+// --- CARGA DE ENLACE DE PELÍCULA EN EL IFRAME ---
+function cargarVideoEnModal(urlEnlace) {
+    const iframeElement = document.getElementById("video-player-pelicula");
+    if (!iframeElement) return;
 
-// RESOLUCIÓN DE RUTA EXACTA CON CARPETA Películas/ Y CARGA EN DASH.JS
-async function cargarVideoEnModal(nombreArchivoMpd) {
-    const videoElement = document.getElementById("video-player-pelicula");
-    if (!videoElement) return;
-
-    let rawPath = String(nombreArchivoMpd).trim();
-    let manifestUri = "";
-
-    // Garantizar exactamente la ruta original 'Películas/' y añadir '.mpd' si no lo traía
-    if (rawPath.startsWith("http://") || rawPath.startsWith("https://")) {
-        manifestUri = rawPath;
-    } else {
-        const limpia = rawPath.replace(/^\/?Películas\//i, "").replace(/^\//, "");
-        let conExtension = limpia.endsWith(".mpd") ? limpia : `${limpia}.mpd`;
-        manifestUri = `Películas/${conExtension}`;
-    }
-
-    try {
-        await cargarLibreriaDashJS();
-
-        // Destruir instancia previa de dash.js si existía
-        if (dashPlayerInstance) {
-            dashPlayerInstance.reset();
-            dashPlayerInstance = null;
-        }
-
-        // Crear reproductor oficial dash.js
-        dashPlayerInstance = dashjs.MediaPlayer().create();
-        
-        dashPlayerInstance.updateSettings({
-            'streaming': {
-                'fastSwitchEnabled': true,
-                'buffer': {
-                    'stableBufferTime': 20,
-                    'bufferTimeAtTopQuality': 30
-                }
-            }
-        });
-
-        // Inicializar y reproducir desde la ruta exacta
-        dashPlayerInstance.initialize(videoElement, manifestUri, true);
-
-        const playPromise = videoElement.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                videoElement.muted = true;
-                videoElement.play().catch(e => console.log("Se requiere interacción para reproducir vídeo:", e));
-            });
-        }
-
-    } catch (err) {
-        console.error("Error al cargar .mpd con dash.js:", err);
-    }
+    let urlFinal = String(urlEnlace).trim();
+    
+    // Si es un enlace de Internet Archive y se desea usar el reproductor embebido directamente, 
+    // se puede transformar o simplemente pasar la URL tal cual si acepta inserción.
+    iframeElement.src = urlFinal;
 }
 
 // --- LÓGICA POP-UP VER PELÍCULA ---
@@ -581,9 +520,9 @@ async function abrirModalVer() {
 
     const modalVer = document.getElementById("modal-ver");
     const containerOpciones = document.getElementById("modal-ver-opciones");
-    const videoElement = document.getElementById("video-player-pelicula");
+    const iframeElement = document.getElementById("video-player-pelicula");
 
-    if (!modalVer || !containerOpciones || !videoElement) return;
+    if (!modalVer || !containerOpciones || !iframeElement) return;
 
     containerOpciones.innerHTML = "";
 
@@ -596,7 +535,7 @@ async function abrirModalVer() {
 
         let opcionSeleccionada = opciones[0];
 
-        opciones.forEach(([etiqueta, nombreArchivoMpd], index) => {
+        opciones.forEach(([etiqueta, urlEnlace], index) => {
             const btnOpcion = document.createElement("button");
             btnOpcion.type = "button";
             btnOpcion.className = `btn-lang-tab ${index === 0 ? "active" : ""}`;
@@ -607,7 +546,7 @@ async function abrirModalVer() {
                 if (prevActive) prevActive.classList.remove("active");
                 btnOpcion.classList.add("active");
 
-                cargarVideoEnModal(nombreArchivoMpd);
+                cargarVideoEnModal(urlEnlace);
             });
 
             containerOpciones.appendChild(btnOpcion);
@@ -624,17 +563,10 @@ async function abrirModalVer() {
 
 function cerrarModalVer() {
     const modalVer = document.getElementById("modal-ver");
-    const videoElement = document.getElementById("video-player-pelicula");
+    const iframeElement = document.getElementById("video-player-pelicula");
 
-    if (videoElement) {
-        videoElement.pause();
-        videoElement.removeAttribute('src');
-        videoElement.load();
-    }
-
-    if (dashPlayerInstance) {
-        dashPlayerInstance.reset();
-        dashPlayerInstance = null;
+    if (iframeElement) {
+        iframeElement.src = "";
     }
 
     if (modalVer) modalVer.classList.add("hidden");
