@@ -6,8 +6,6 @@
     <title>Synkro - Película</title>
     <link class="icon" type="image/jpeg" href="../Synkro.jpg">
     <link rel="stylesheet" href="css/Película.css">
-    <!-- Librería Shaka Player para reproducir contenido MPD directamente en el modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.compiled.js"></script>
 </head>
 <body>
 
@@ -108,7 +106,7 @@
         </div>
     </div>
 
-    <!-- POP-UP VER PELÍCULA (REPRODUCCIÓN EN LA MISMA PÁGINA) -->
+    <!-- POP-UP VER PELÍCULA (REPRODUCCIÓN EN LA MISMA PÁGINA MEDIANTE ENLACE/IFRAME) -->
     <div id="modal-ver" class="modal-overlay hidden">
         <div class="modal-card modal-card-large">
             <div class="modal-header">
@@ -118,7 +116,7 @@
             <div class="modal-body">
                 <div id="modal-ver-opciones" class="modal-lang-selector"></div>
                 <div class="modal-player-container">
-                    <video id="video-player-pelicula" class="modal-player-video" controls autoplay></video>
+                    <iframe id="video-player-pelicula" class="modal-player-iframe" allowfullscreen allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
