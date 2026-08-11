@@ -37,9 +37,6 @@ let datosSerieActual = null;
 let tituloSerieBuscado = "";
 let numTemporadaSeleccionada = "";
 
-// Instancia reproductor DASH
-let dashPlayerInstance = null;
-
 // Diccionario local para traducciones de apoyo
 const traduccionesLocales = {
     "label_temporada_num": {
@@ -380,7 +377,7 @@ function abrirModalOpcionesVer(numEpisodio, nombreEpisodio, mapaVer) {
         const opcionesIdiomas = Object.keys(mapaVer);
 
         opcionesIdiomas.forEach((nombreOpcion) => {
-            const archivoMpd = mapaVer[nombreOpcion];
+            const urlEnlace = mapaVer[nombreOpcion];
 
             const btnOpcion = document.createElement("button");
             btnOpcion.type = "button";
@@ -389,7 +386,7 @@ function abrirModalOpcionesVer(numEpisodio, nombreEpisodio, mapaVer) {
 
             btnOpcion.addEventListener("click", () => {
                 cerrarModalVer();
-                reproducirArchivoMPD(nombreEpisodio, archivoMpd);
+                reproducirEnlaceEpisodio(nombreEpisodio, urlEnlace);
             });
 
             contenedorBotones.appendChild(btnOpcion);
@@ -404,13 +401,13 @@ function cerrarModalVer() {
     if (modal) modal.style.display = "none";
 }
 
-// --- MANEJO DEL REPRODUCTOR EN LA MISMA PÁGINA ---
-function reproducirArchivoMPD(nombreEpisodio, nombreArchivoMpd) {
+// --- MANEJO DEL REPRODUCTOR EN LA MISMA PÁGINA (IFRAME) ---
+function reproducirEnlaceEpisodio(nombreEpisodio, urlEnlace) {
     const contenedorReproductor = document.getElementById("contenedor-reproductor-mpd");
     const txtTituloRep = document.getElementById("titulo-reproduccion-actual");
-    const videoElement = document.getElementById("video-player-dash");
+    const iframeElement = document.getElementById("video-player-iframe");
 
-    if (!contenedorReproductor || !videoElement) return;
+    if (!contenedorReproductor || !iframeElement) return;
 
     if (txtTituloRep) {
         txtTituloRep.textContent = nombreEpisodio;
@@ -419,35 +416,16 @@ function reproducirArchivoMPD(nombreEpisodio, nombreArchivoMpd) {
     contenedorReproductor.style.display = "flex";
     contenedorReproductor.scrollIntoView({ behavior: 'smooth' });
 
-    // RUTA OFICIAL: Series/nombre.mpd
-    const rutaMpd = `Series/${nombreArchivoMpd}`;
-
-    if (dashjs && typeof dashjs.MediaPlayer === "function") {
-        if (dashPlayerInstance) {
-            dashPlayerInstance.reset();
-        }
-        dashPlayerInstance = dashjs.MediaPlayer().create();
-        dashPlayerInstance.initialize(videoElement, rutaMpd, true);
-    } else {
-        // Carga estándar alternativa de respaldo
-        videoElement.src = rutaMpd;
-        videoElement.play();
-    }
+    let urlFinal = String(urlEnlace).trim();
+    iframeElement.src = urlFinal;
 }
 
 function cerrarReproductor() {
     const contenedorReproductor = document.getElementById("contenedor-reproductor-mpd");
-    const videoElement = document.getElementById("video-player-dash");
+    const iframeElement = document.getElementById("video-player-iframe");
 
-    if (dashPlayerInstance) {
-        dashPlayerInstance.reset();
-        dashPlayerInstance = null;
-    }
-
-    if (videoElement) {
-        videoElement.pause();
-        videoElement.removeAttribute("src");
-        videoElement.load();
+    if (iframeElement) {
+        iframeElement.src = "";
     }
 
     if (contenedorReproductor) {
