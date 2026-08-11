@@ -6,8 +6,6 @@
     <title>Synkro - Temporadas</title>
     <link class="icon" type="image/jpeg" href="../Synkro.jpg">
     <link rel="stylesheet" href="css/Temporadas.css">
-    <!-- Librería DASH.js para reproducción de archivos .mpd -->
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
 
@@ -41,14 +39,14 @@
             <h1 id="titulo-temporada-full" class="titulo-temporada-text"></h1>
         </div>
 
-        <!-- Seccion Reproductor Integrado -->
+        <!-- Seccion Reproductor Integrado (Mediante Iframe para enlaces directos) -->
         <div id="contenedor-reproductor-mpd" class="reproductor-box" style="display: none;">
             <div class="reproductor-header">
                 <span id="titulo-reproduccion-actual" class="reproductor-titulo-txt"></span>
                 <button type="button" id="btn-cerrar-reproductor" class="btn-cerrar-media">&times;</button>
             </div>
-            <div class="video-wrapper">
-                <video id="video-player-dash" controls></video>
+            <div class="video-wrapper modal-player-container">
+                <iframe id="video-player-iframe" class="modal-player-iframe" allowfullscreen allow="autoplay"></iframe>
             </div>
         </div>
 
