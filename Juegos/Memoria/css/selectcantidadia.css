@@ -1,0 +1,176 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el degradado característico */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 520px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-content-hub {
+    width: 100%;
+    max-width: 520px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.brand-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.btn-juego-custom {
+    width: 100%;
+    background: linear-gradient(145deg, #00aeff, #00eeff);
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 15px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-juego-custom:hover {
+    background: linear-gradient(145deg, #10b1fc, #2beaf8);
+    transform: translateY(-2px);
+}
