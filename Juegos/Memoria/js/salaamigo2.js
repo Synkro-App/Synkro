@@ -506,7 +506,8 @@ async function finalizarPartidaLogica() {
         ganador: arrayUnion(ganadorStr),
         parejasencontradasjugador1: arrayUnion(p1),
         parejasencontradasjugador2: arrayUnion(p2),
-        parejasencontradasjugador3: arrayUnion(p3)
+        parejasencontradasjugador3: arrayUnion(p3),
+        revanchaAceptada: []
     });
 }
 
@@ -549,11 +550,11 @@ function escucharPartida(partidaId) {
             let tituloResultado = "Resultado de la Partida";
             let mensajeResultado = `P1: ${p1} | P2: ${p2} | P3: ${p3}`;
 
-            if (data.peticion === "espera") {
-                const quienPidioRevancha = data.usuarioPeticion || "";
-                const soyQuienPidio = quienPidioRevancha === nombreUsuarioLogueado;
+            const listaAceptados = data.revanchaAceptada || [];
+            const yaAcepteYo = listaAceptados.includes(nombreUsuarioLogueado);
 
-                if (soyQuienPidio) {
+            if (data.peticion === "espera") {
+                if (yaAcepteYo) {
                     mostrarModal(
                         obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
                         obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
@@ -561,7 +562,7 @@ function escucharPartida(partidaId) {
                     );
                 } else {
                     const textoRevancha = obtenerTextoTraduccion("solicitud_revancha", "Solicitud de revancha");
-                    const msgRevancha = `${quienPidioRevancha} ${obtenerTextoTraduccion("quiere_volver_jugar", "quiere volver a jugar")}`;
+                    const msgRevancha = `¡Alguien quiere revancha! ¿Aceptas volver a jugar?`;
                     
                     const btnAceptarTxt = obtenerTextoTraduccion("btn_aceptar", "Aceptar");
                     const btnRechazarTxt = obtenerTextoTraduccion("btn_rechazar", "Rechazar");
@@ -573,22 +574,35 @@ function escucharPartida(partidaId) {
 
                     document.getElementById("btn-aceptar-revancha").addEventListener("click", async () => {
                         cerrarModal();
-                        const simbolosBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "🚀"];
-                        let nuevaBaraja = [...simbolosBase, ...simbolosBase];
-                        nuevaBaraja.sort(() => Math.random() - 0.5);
+                        const nuevaListaAceptados = [...(data.revanchaAceptada || []), nombreUsuarioLogueado];
+                        
+                        if (nuevaListaAceptados.length >= 3) {
+                            const simbolosBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "🚀"];
+                            let nuevaBaraja = [...simbolosBase, ...simbolosBase];
+                            nuevaBaraja.sort(() => Math.random() - 0.5);
 
-                        await updateDoc(partidaRef, {
-                            peticion: deleteField(),
-                            partida: deleteField(),
-                            usuarioPeticion: deleteField(),
-                            cartasEncontradas: [],
-                            cartasSeleccionadas: [],
-                            puntuacion1: 0,
-                            puntuacion2: 0,
-                            puntuacion3: 0,
-                            jugadorActualTurno: 1,
-                            baraja: nuevaBaraja
-                        });
+                            await updateDoc(partidaRef, {
+                                peticion: deleteField(),
+                                partida: deleteField(),
+                                revanchaAceptada: [],
+                                cartasEncontradas: [],
+                                cartasSeleccionadas: [],
+                                puntuacion1: 0,
+                                puntuacion2: 0,
+                                puntuacion3: 0,
+                                jugadorActualTurno: 1,
+                                baraja: nuevaBaraja
+                            });
+                        } else {
+                            await updateDoc(partidaRef, {
+                                revanchaAceptada: nuevaListaAceptados
+                            });
+                            mostrarModal(
+                                obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
+                                obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
+                                ""
+                            );
+                        }
                     });
 
                     document.getElementById("btn-rechazar-revancha").addEventListener("click", async () => {
@@ -633,9 +647,10 @@ function escucharPartida(partidaId) {
 
                 document.getElementById("modal-btn-revancha").addEventListener("click", async () => {
                     cerrarModal();
+                    const nuevaListaAceptados = [nombreUsuarioLogueado];
                     await updateDoc(partidaRef, {
                         peticion: "espera",
-                        usuarioPeticion: nombreUsuarioLogueado
+                        revanchaAceptada: nuevaListaAceptados
                     });
                     mostrarModal(
                         obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
@@ -790,7 +805,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 puntuacion2: 0,
                 puntuacion3: 0,
                 jugadorActualTurno: 1,
-                baraja: baraja
+                baraja: baraja,
+                revanchaAceptada: []
             });
 
             btnGenerarCodigo.style.display = "none";
