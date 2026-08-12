@@ -507,7 +507,9 @@ async function finalizarPartidaLogica() {
         parejasencontradasjugador1: arrayUnion(p1),
         parejasencontradasjugador2: arrayUnion(p2),
         parejasencontradasjugador3: arrayUnion(p3),
-        revanchaAceptada: []
+        peticion: "espera",
+        revanchaAceptada: [],
+        revanchaRechazada: []
     });
 }
 
@@ -551,10 +553,18 @@ function escucharPartida(partidaId) {
             let mensajeResultado = `P1: ${p1} | P2: ${p2} | P3: ${p3}`;
 
             const listaAceptados = data.revanchaAceptada || [];
+            const listaRechazados = data.revanchaRechazada || [];
             const yaAcepteYo = listaAceptados.includes(nombreUsuarioLogueado);
+            const yaRechaceYo = listaRechazados.includes(nombreUsuarioLogueado);
 
             if (data.peticion === "espera") {
                 if (yaAcepteYo) {
+                    mostrarModal(
+                        obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
+                        obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
+                        ""
+                    );
+                } else if (yaRechaceYo) {
                     mostrarModal(
                         obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
                         obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
@@ -574,17 +584,28 @@ function escucharPartida(partidaId) {
 
                     document.getElementById("btn-aceptar-revancha").addEventListener("click", async () => {
                         cerrarModal();
-                        const nuevaListaAceptados = [...(data.revanchaAceptada || []), nombreUsuarioLogueado];
                         
-                        if (nuevaListaAceptados.length >= 3) {
-                            const simbolosBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "🚀"];
-                            let nuevaBaraja = [...simbolosBase, ...simbolosBase];
+                        const docActualizado = await getDoc(partidaRef);
+                        const dataActual = docActualizado.data();
+                        const aceptadosActuales = dataActual.revanchaAceptada || [];
+                        const rechazadosActuales = dataActual.revanchaRechazada || [];
+
+                        if (!aceptadosActuales.includes(nombreUsuarioLogueado)) {
+                            aceptadosActuales.push(nombreUsuarioLogueado);
+                        }
+
+                        if (aceptadosActuales.length >= 3) {
+                            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕"];
+                            let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
+                            let simbolosSeleccionados = emojisMezclados.slice(0, 15);
+                            let nuevaBaraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
                             nuevaBaraja.sort(() => Math.random() - 0.5);
 
                             await updateDoc(partidaRef, {
                                 peticion: deleteField(),
                                 partida: deleteField(),
                                 revanchaAceptada: [],
+                                revanchaRechazada: [],
                                 cartasEncontradas: [],
                                 cartasSeleccionadas: [],
                                 puntuacion1: 0,
@@ -595,7 +616,7 @@ function escucharPartida(partidaId) {
                             });
                         } else {
                             await updateDoc(partidaRef, {
-                                revanchaAceptada: nuevaListaAceptados
+                                revanchaAceptada: aceptadosActuales
                             });
                             mostrarModal(
                                 obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
@@ -607,9 +628,19 @@ function escucharPartida(partidaId) {
 
                     document.getElementById("btn-rechazar-revancha").addEventListener("click", async () => {
                         cerrarModal();
+                        
+                        const docActualizado = await getDoc(partidaRef);
+                        const dataActual = docActualizado.data();
+                        const rechazadosActuales = dataActual.revanchaRechazada || [];
+
+                        if (!rechazadosActuales.includes(nombreUsuarioLogueado)) {
+                            rechazadosActuales.push(nombreUsuarioLogueado);
+                        }
+
                         await updateDoc(partidaRef, {
                             partida: "terminada",
-                            peticion: "rechazada"
+                            peticion: "rechazada",
+                            revanchaRechazada: rechazadosActuales
                         });
                         volverAlMenuAmigo();
                     });
@@ -650,7 +681,8 @@ function escucharPartida(partidaId) {
                     const nuevaListaAceptados = [nombreUsuarioLogueado];
                     await updateDoc(partidaRef, {
                         peticion: "espera",
-                        revanchaAceptada: nuevaListaAceptados
+                        revanchaAceptada: nuevaListaAceptados,
+                        revanchaRechazada: []
                     });
                     mostrarModal(
                         obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
@@ -779,8 +811,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             codigoActualPartida = codigoInc;
             partidaIdActiva = nuevoIdDoc;
 
-            const simbolosBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "🚀"];
-            let baraja = [...simbolosBase, ...simbolosBase];
+            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕"];
+            let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
+            let simbolosSeleccionados = emojisMezclados.slice(0, 15);
+            let baraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
             baraja.sort(() => Math.random() - 0.5);
 
             barajaPartida = baraja;
@@ -806,7 +840,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 puntuacion3: 0,
                 jugadorActualTurno: 1,
                 baraja: baraja,
-                revanchaAceptada: []
+                revanchaAceptada: [],
+                revanchaRechazada: []
             });
 
             btnGenerarCodigo.style.display = "none";
