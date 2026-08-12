@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Memoria Contrarreloj</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/selectcontiempo.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-modo-tiempo">Selecciona modo contrarreloj</h1>
+        </div>
+
+        <div class="modes-container">
+            <button type="button" id="btn-facil-5m" class="btn-juego-custom">
+                <span id="text-btn-facil">Fácil - 5 minutos (10 parejas)</span>
+            </button>
+            <button type="button" id="btn-medio-2m" class="btn-juego-custom">
+                <span id="text-btn-medio">Medio - 2 minutos (10 parejas)</span>
+            </button>
+            <button type="button" id="btn-dificil-1m" class="btn-juego-custom">
+                <span id="text-btn-dificil">Difícil - 1 minuto (10 parejas)</span>
+            </button>
+        </div>
+    </main>
+
+    <script type="module" src="js/selectcontiempo.js"></script>
+</body>
+</html>
