@@ -460,7 +460,7 @@ async function finalizarPartidaLogica() {
     const snap = await getDoc(partidaRef);
     if (!snap.exists()) return;
     const data = snap.data();
-    if (data.partida === "espera") return;
+    if (data.partida === "espera" || data.partida === "fin") return;
 
     const p1 = data.puntuacion1 || 0;
     const p2 = data.puntuacion2 || 0;
@@ -501,15 +501,13 @@ async function finalizarPartidaLogica() {
     await actualizarJugadorRewards(data.jugador3DocId, npJ3, p3);
 
     await updateDoc(partidaRef, {
-        partida: "espera",
+        partida: "fin",
         fecha: arrayUnion(new Date()),
         ganador: arrayUnion(ganadorStr),
         parejasencontradasjugador1: arrayUnion(p1),
         parejasencontradasjugador2: arrayUnion(p2),
         parejasencontradasjugador3: arrayUnion(p3),
-        peticion: "espera",
-        revanchaAceptada: [],
-        revanchaRechazada: []
+        ganadorTextoUltimo: ganadorStr
     });
 }
 
@@ -526,7 +524,7 @@ function escucharPartida(partidaId) {
 
         const salaCompleta = data.jugador1 && data.jugador2 && data.jugador3;
 
-        if ((salaCompleta && (menuAmigoVisible || contenedorJuegoOculto)) && data.partida !== "espera" && data.partida !== "terminada") {
+        if ((salaCompleta && (menuAmigoVisible || contenedorJuegoOculto)) && data.partida !== "fin" && data.partida !== "espera" && data.partida !== "terminada") {
             document.getElementById("menu-amigo").style.display = "none";
             document.getElementById("contenedor-juego").style.display = "flex";
             if (data.baraja && Array.isArray(data.baraja)) {
@@ -543,52 +541,83 @@ function escucharPartida(partidaId) {
             }
         }
 
-        if (data.partida === "espera") {
+        if (data.partida === "fin") {
             await actualizarVisualesTablero(data);
             const p1 = data.puntuacion1 || 0;
             const p2 = data.puntuacion2 || 0;
             const p3 = data.puntuacion3 || 0;
             
             let tituloResultado = "Resultado de la Partida";
-            let mensajeResultado = `P1: ${p1} | P2: ${p2} | P3: ${p3}`;
+            let mensajeResultado = `${data.ganadorTextoUltimo || "Partida finalizada"} (P1: ${p1} | P2: ${p2} | P3: ${p3})`;
 
+            const btnCerrarTxt = obtenerTextoTraduccion("btn_cerrar", "Cerrar");
+            const btnRevanchaTxt = obtenerTextoTraduccion("modal_btn_revancha", "Volver a jugar");
+
+            mostrarModal(tituloResultado, mensajeResultado, `
+                <button type="button" id="modal-btn-cerrar" class="btn-juego-custom" style="background: #ff6b6b;">${btnCerrarTxt}</button>
+                <button type="button" id="modal-btn-revancha" class="btn-juego-custom" style="background: #a8e6cf;">${btnRevanchaTxt}</button>
+            `);
+
+            const btnModalCerrar = document.getElementById("modal-btn-cerrar");
+            if (btnModalCerrar) {
+                btnModalCerrar.onclick = async () => {
+                    cerrarModal();
+                    await updateDoc(partidaRef, { partida: "terminada" });
+                    volverAlMenuAmigo();
+                };
+            }
+
+            const btnModalRevancha = document.getElementById("modal-btn-revancha");
+            if (btnModalRevancha) {
+                btnModalRevancha.onclick = async () => {
+                    cerrarModal();
+                    const nuevaListaAceptados = [nombreUsuarioLogueado];
+                    await updateDoc(partidaRef, {
+                        partida: "espera",
+                        peticion: "espera",
+                        revanchaAceptada: nuevaListaAceptados,
+                        revanchaRechazada: []
+                    });
+                    mostrarModal(
+                        obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
+                        obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
+                        ""
+                    );
+                };
+            }
+        } else if (data.partida === "espera") {
+            await actualizarVisualesTablero(data);
             const listaAceptados = data.revanchaAceptada || [];
             const listaRechazados = data.revanchaRechazada || [];
             const yaAcepteYo = listaAceptados.includes(nombreUsuarioLogueado);
             const yaRechaceYo = listaRechazados.includes(nombreUsuarioLogueado);
 
-            if (data.peticion === "espera") {
-                if (yaAcepteYo) {
-                    mostrarModal(
-                        obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
-                        obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
-                        ""
-                    );
-                } else if (yaRechaceYo) {
-                    mostrarModal(
-                        obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
-                        obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
-                        ""
-                    );
-                } else {
-                    const textoRevancha = obtenerTextoTraduccion("solicitud_revancha", "Solicitud de revancha");
-                    const msgRevancha = `¡Alguien quiere revancha! ¿Aceptas volver a jugar?`;
-                    
-                    const btnAceptarTxt = obtenerTextoTraduccion("btn_aceptar", "Aceptar");
-                    const btnRechazarTxt = obtenerTextoTraduccion("btn_rechazar", "Rechazar");
+            if (yaAcepteYo || yaRechaceYo) {
+                mostrarModal(
+                    obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
+                    obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
+                    ""
+                );
+            } else {
+                const textoRevancha = obtenerTextoTraduccion("solicitud_revancha", "Solicitud de revancha");
+                const msgRevancha = `¡Alguien quiere revancha! ¿Aceptas volver a jugar?`;
+                
+                const btnAceptarTxt = obtenerTextoTraduccion("btn_aceptar", "Aceptar");
+                const btnRechazarTxt = obtenerTextoTraduccion("btn_rechazar", "Rechazar");
 
-                    mostrarModal(textoRevancha, msgRevancha, `
-                        <button type="button" id="btn-aceptar-revancha" class="btn-juego-custom" style="background: #a8e6cf;">${btnAceptarTxt}</button>
-                        <button type="button" id="btn-rechazar-revancha" class="btn-juego-custom" style="background: #ff6b6b;">${btnRechazarTxt}</button>
-                    `);
+                mostrarModal(textoRevancha, msgRevancha, `
+                    <button type="button" id="btn-aceptar-revancha" class="btn-juego-custom" style="background: #a8e6cf;">${btnAceptarTxt}</button>
+                    <button type="button" id="btn-rechazar-revancha" class="btn-juego-custom" style="background: #ff6b6b;">${btnRechazarTxt}</button>
+                `);
 
-                    document.getElementById("btn-aceptar-revancha").addEventListener("click", async () => {
+                const btnAceptarRev = document.getElementById("btn-aceptar-revancha");
+                if (btnAceptarRev) {
+                    btnAceptarRev.onclick = async () => {
                         cerrarModal();
                         
                         const docActualizado = await getDoc(partidaRef);
                         const dataActual = docActualizado.data();
                         const aceptadosActuales = dataActual.revanchaAceptada || [];
-                        const rechazadosActuales = dataActual.revanchaRechazada || [];
 
                         if (!aceptadosActuales.includes(nombreUsuarioLogueado)) {
                             aceptadosActuales.push(nombreUsuarioLogueado);
@@ -612,7 +641,8 @@ function escucharPartida(partidaId) {
                                 puntuacion2: 0,
                                 puntuacion3: 0,
                                 jugadorActualTurno: 1,
-                                baraja: nuevaBaraja
+                                baraja: nuevaBaraja,
+                                ganadorTextoUltimo: deleteField()
                             });
                         } else {
                             await updateDoc(partidaRef, {
@@ -624,9 +654,12 @@ function escucharPartida(partidaId) {
                                 ""
                             );
                         }
-                    });
+                    };
+                }
 
-                    document.getElementById("btn-rechazar-revancha").addEventListener("click", async () => {
+                const btnRechazarRev = document.getElementById("btn-rechazar-revancha");
+                if (btnRechazarRev) {
+                    btnRechazarRev.onclick = async () => {
                         cerrarModal();
                         
                         const docActualizado = await getDoc(partidaRef);
@@ -643,53 +676,24 @@ function escucharPartida(partidaId) {
                             revanchaRechazada: rechazadosActuales
                         });
                         volverAlMenuAmigo();
-                    });
+                    };
                 }
-            } else if (data.peticion === "rechazada") {
-                const msgFin = obtenerTextoTraduccion("ya_no_quiere_jugar", "ya no quiere o puede volver a jugar");
-                const btnCerrarTxt = obtenerTextoTraduccion("btn_cerrar", "Cerrar");
+            }
+        } else if (data.peticion === "rechazada") {
+            const msgFin = obtenerTextoTraduccion("ya_no_quiere_jugar", "ya no quiere o puede volver a jugar");
+            const btnCerrarTxt = obtenerTextoTraduccion("btn_cerrar", "Cerrar");
 
-                mostrarModal(
-                    obtenerTextoTraduccion("partida_finalizada", "Partida Finalizada"), 
-                    msgFin, 
-                    `<button type="button" id="btn-cerrar-final" class="btn-juego-custom">${btnCerrarTxt}</button>`
-                );
-                document.getElementById("btn-cerrar-final").addEventListener("click", () => {
+            mostrarModal(
+                obtenerTextoTraduccion("partida_finalizada", "Partida Finalizada"), 
+                msgFin, 
+                `<button type="button" id="btn-cerrar-final" class="btn-juego-custom">${btnCerrarTxt}</button>`
+            );
+            const btnCerrarFinal = document.getElementById("btn-cerrar-final");
+            if (btnCerrarFinal) {
+                btnCerrarFinal.onclick = () => {
                     cerrarModal();
                     volverAlMenuAmigo();
-                });
-            } else if (!data.peticion && !data.partida) {
-                cerrarModal();
-                renderizarTablero();
-            } else {
-                const btnCerrarTxt = obtenerTextoTraduccion("btn_cerrar", "Cerrar");
-                const btnRevanchaTxt = obtenerTextoTraduccion("modal_btn_revancha", "Volver a jugar");
-
-                mostrarModal(tituloResultado, mensajeResultado, `
-                    <button type="button" id="modal-btn-cerrar" class="btn-juego-custom" style="background: #ff6b6b;">${btnCerrarTxt}</button>
-                    <button type="button" id="modal-btn-revancha" class="btn-juego-custom" style="background: #a8e6cf;">${btnRevanchaTxt}</button>
-                `);
-
-                document.getElementById("modal-btn-cerrar").addEventListener("click", async () => {
-                    cerrarModal();
-                    await updateDoc(partidaRef, { partida: "terminada" });
-                    volverAlMenuAmigo();
-                });
-
-                document.getElementById("modal-btn-revancha").addEventListener("click", async () => {
-                    cerrarModal();
-                    const nuevaListaAceptados = [nombreUsuarioLogueado];
-                    await updateDoc(partidaRef, {
-                        peticion: "espera",
-                        revanchaAceptada: nuevaListaAceptados,
-                        revanchaRechazada: []
-                    });
-                    mostrarModal(
-                        obtenerTextoTraduccion("revancha_titulo", "Revancha"), 
-                        obtenerTextoTraduccion("esperando_respuesta", "Esperando respuesta..."), 
-                        ""
-                    );
-                });
+                };
             }
         } else if (data.partida === "terminada") {
             const msgTerminada = obtenerTextoTraduccion("usuario_no_quiere_jugar_mas", "ya no quiere o puede jugar más");
@@ -700,10 +704,13 @@ function escucharPartida(partidaId) {
                 msgTerminada, 
                 `<button type="button" id="btn-cerrar-terminada" class="btn-juego-custom">${btnCerrarTxt}</button>`
             );
-            document.getElementById("btn-cerrar-terminada").addEventListener("click", () => {
-                cerrarModal();
-                volverAlMenuAmigo();
-            });
+            const btnCerrarTerminada = document.getElementById("btn-cerrar-terminada");
+            if (btnCerrarTerminada) {
+                btnCerrarTerminada.onclick = () => {
+                    cerrarModal();
+                    volverAlMenuAmigo();
+                };
+            }
         } else {
             cerrarModal();
             await actualizarVisualesTablero(data);
@@ -875,7 +882,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     obtenerTextoTraduccion("codigo_no_encontrado", "Código no encontrado o partida inexistente."), 
                     `<button type="button" id="btn-cerrar-error" class="btn-juego-custom">${obtenerTextoTraduccion("btn_cerrar", "Cerrar")}</button>`
                 );
-                document.getElementById("btn-cerrar-error").addEventListener("click", cerrarModal);
+                const btnCerrarError = document.getElementById("btn-cerrar-error");
+                if (btnCerrarError) btnCerrarError.onclick = cerrarModal;
                 return;
             }
 
@@ -904,7 +912,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     obtenerTextoTraduccion("sala_llena", "La sala ya está completa."), 
                     `<button type="button" id="btn-cerrar-llena" class="btn-juego-custom">${obtenerTextoTraduccion("btn_cerrar", "Cerrar")}</button>`
                 );
-                document.getElementById("btn-cerrar-llena").addEventListener("click", cerrarModal);
+                const btnCerrarLlena = document.getElementById("btn-cerrar-llena");
+                if (btnCerrarLlena) btnCerrarLlena.onclick = cerrarModal;
                 return;
             }
 
