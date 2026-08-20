@@ -1,0 +1,241 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el mismo degradado */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.btn-default {
+    flex: 1;
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+.main-content-hub {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+}
+
+.brand-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.info-turno-text {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+    text-align: center;
+    width: 100%;
+}
+
+/* Tablero de 40 parejas (80 cartas - rejilla de 10 columnas) */
+.grid-parejas {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.carta-pareja {
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #00aeff, #00eeff);
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    user-select: none;
+    color: transparent;
+}
+
+.carta-pareja.volteada, .carta-pareja.encontrada {
+    background: #ffffff;
+    color: #000000;
+}
+
+.carta-pareja.encontrada {
+    background: #a8e6cf;
+    cursor: default;
+}
+
+.resultado-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-juego-custom {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #00aeff, #00eeff);
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-juego-custom:hover {
+    background: linear-gradient(145deg, #10b1fc, #2beaf8);
+    transform: translateY(-2px);
+}

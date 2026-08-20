@@ -1,0 +1,230 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con el mismo degradado */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+}
+
+/* --- CONTENEDOR DE LA CABECERA (INTACTO) --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 950px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    gap: 15px;
+    margin-top: 0px;
+}
+
+.avatar-img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* Contenedor principal expandido a todo el ancho */
+.main-content-hub {
+    width: 100%;
+    max-width: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 12px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid #000000;
+}
+
+.brand-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Tablero de 16 columnas adaptado para 80 cartas (40 parejas) */
+.memory-board-medio {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 2px;
+    width: 100%;
+}
+
+.memory-card {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #00aeff, #00eeff);
+    border: 1px solid #000000;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-1px);
+}
+
+.memory-card.flipped {
+    background: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    background: #a8e6cf;
+    cursor: default;
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+.game-message {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.btn-juego-custom {
+    width: 100%;
+    background: linear-gradient(145deg, #00aeff, #00eeff);
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-juego-custom:hover {
+    background: linear-gradient(145deg, #10b1fc, #2beaf8);
+    transform: translateY(-1px);
+}
