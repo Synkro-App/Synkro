@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Modo Contra 1 IA</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/select1iamode.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row">
+            <h1 class="brand-title" id="titulo-select-1ia">Contra 1 IA - Seleccionar Dificultad</h1>
+        </div>
+
+        <div class="buttons-container-row">
+            <button type="button" id="btn-ia-facil" class="btn-juego-custom">Fácil</button>
+            <button type="button" id="btn-ia-medio" class="btn-juego-custom">Medio</button>
+            <button type="button" id="btn-ia-dificil" class="btn-juego-custom">Difícil</button>
+        </div>
+    </main>
+
+    <script type="module" src="js/select1iamode.js"></script>
+</body>
+</html>
