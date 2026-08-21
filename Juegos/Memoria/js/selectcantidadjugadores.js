@@ -37,10 +37,10 @@ const traduccionesLocales = {
     "text_subscripcion": { "es": "Suscripción:", "en": "Subscription:", "fr": "Abonnement:", "ro": "Abonament:" },
     "btn_volver": { "es": "Volver", "en": "Back", "fr": "Retour", "ro": "Înapoi" },
     "titulo_cantidad_jugadores": { "es": "Selecciona la cantidad de jugadores", "en": "Select the number of players", "fr": "Sélectionnez le nombre de joueurs", "ro": "Selectați numărul de jucători" },
-    "btn_1_jugador": { "es": "1 Jugador", "en": "1 Player", "fr": "1 Joueur", "ro": "1 Jucător" },
-    "btn_2_jugadores": { "es": "2 Jugadores", "en": "2 Players", "fr": "2 Joueurs", "ro": "2 Jucători" },
-    "btn_3_jugadores": { "es": "3 Jugadores", "en": "3 Players", "fr": "3 Joueurs", "ro": "3 Jucători" },
-    "btn_4_jugadores": { "es": "4 Jugadores", "en": "4 Players", "fr": "4 Joueurs", "ro": "4 Jucători" }
+    "btn_1_jugador": { "es": "Con 1 Jugador", "en": "With 1 Player", "fr": "A 1 Joueur", "ro": "Cu 1 Jucător" },
+    "btn_2_jugadores": { "es": "Con 2 Jugadores más", "en": "With extra 2 Players", "fr": "A 2 Joueurs de plus", "ro": "Cu 2 Jucători in plus" },
+    "btn_3_jugadores": { "es": "Con 3 Jugadores más", "en": "With extra 3 Players", "fr": "A 3 Joueurs de plus", "ro": "Cu 3 Jucători in plus" },
+    "btn_4_jugadores": { "es": "Con 4 Jugadores más", "en": "With extra 4 Players", "fr": "A 4 Joueurs de plus", "ro": "Cu 4 Jucători in plus" }
 };
 
 function normalizarSourceImagen(cadenaImagen) {
