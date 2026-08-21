@@ -41,7 +41,6 @@ let unsubPartida = null;
 let numeroJugadorAsignado = 0; // 1, 2, 3 o 4
 let codigoActualPartida = "";
 
-// Estado de juego de memoria 4 jugadores sincronizado
 let jugadorActualTurno = 1; 
 let puntuaciones = { 1: 0, 2: 0, 3: 0, 4: 0 };
 let cartasSeleccionadas = [];
@@ -165,7 +164,6 @@ async function generarIdPartidaAmigo() {
     let maxNum = 0;
     snapshot.forEach(docSnap => {
         const id = docSnap.id;
-        // CORREGIDO: Se cambia el prefijo a sala3amigos porque juegas con 3 amigos[cite: 11]
         if (id.startsWith("sala3amigos")) {
             const numStr = id.replace("sala3amigos", "");
             const num = parseInt(numStr, 10);
@@ -414,7 +412,7 @@ async function procesarVerificacionParejaRemota(data) {
     } else {
         setTimeout(async () => {
             let turnoNuevo = jugadorActualTurno + 1;
-            if (turnoNuevo > 4) turnoNuevo = 1; // Rotación de 4 jugadores
+            if (turnoNuevo > 4) turnoNuevo = 1;
             await updateDoc(partidaRef, {
                 cartasSeleccionadas: [],
                 jugadorActualTurno: turnoNuevo
@@ -645,11 +643,11 @@ function escucharPartida(partidaId) {
                             aceptadosActuales.push(nombreUsuarioLogueado);
                         }
 
-                        // CORREGIDO: Todos tienen que aceptar ahora, exigiendo los 4 jugadores (tú + tus 3 amigos)[cite: 11]
+                        // ¡Cambio clave! Son 4 en total en la sala, por lo que el que pulsa más los otros 3 invitados deben aceptar (en total 4 aceptados para reiniciar).
                         if (aceptadosActuales.length >= 4) {
                             const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀"];
                             let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
-                            let simbolosSeleccionados = emojisMezclados.slice(0, 20); // 20 parejas
+                            let simbolosSeleccionados = emojisMezclados.slice(0, 20);
                             let nuevaBaraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
                             nuevaBaraja.sort(() => Math.random() - 0.5);
 
@@ -694,6 +692,7 @@ function escucharPartida(partidaId) {
                             rechazadosActuales.push(nombreUsuarioLogueado);
                         }
 
+                        // Si uno solo de los 3 rechaza, se termina de inmediato para todos
                         await updateDoc(partidaRef, {
                             partida: "terminada",
                             peticion: "rechazada",
@@ -844,7 +843,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀"];
             let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
-            let simbolosSeleccionados = emojisMezclados.slice(0, 20); // 20 parejas
+            let simbolosSeleccionados = emojisMezclados.slice(0, 20);
             let baraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
             baraja.sort(() => Math.random() - 0.5);
 
