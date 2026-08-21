@@ -165,15 +165,16 @@ async function generarIdPartidaAmigo() {
     let maxNum = 0;
     snapshot.forEach(docSnap => {
         const id = docSnap.id;
-        if (id.startsWith("sala4amigos")) {
-            const numStr = id.replace("sala4amigos", "");
+        // CORREGIDO: Se cambia el prefijo a sala3amigos porque juegas con 3 amigos[cite: 11]
+        if (id.startsWith("sala3amigos")) {
+            const numStr = id.replace("sala3amigos", "");
             const num = parseInt(numStr, 10);
             if (!isNaN(num) && num > maxNum) {
                 maxNum = num;
             }
         }
     });
-    return `sala4amigos${maxNum + 1}`;
+    return `sala3amigos${maxNum + 1}`;
 }
 
 async function generarCodigoIncremental() {
@@ -644,6 +645,7 @@ function escucharPartida(partidaId) {
                             aceptadosActuales.push(nombreUsuarioLogueado);
                         }
 
+                        // CORREGIDO: Todos tienen que aceptar ahora, exigiendo los 4 jugadores (tú + tus 3 amigos)[cite: 11]
                         if (aceptadosActuales.length >= 4) {
                             const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀"];
                             let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
