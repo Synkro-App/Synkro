@@ -631,7 +631,7 @@ function escucharPartida(partidaId) {
 
                         // ¡Exigencia de los 5 en total! Deben aceptar los 5 jugadores obligatoriamente para reiniciar.
                         if (aceptadosActuales.length >= 5) {
-                            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀", "🍓", "🍉", "🍒", "🍍", "🥝", "🥑", "🥕", "🌽", "🍔", "🍿", "🍩", "🧁", "🎂", "⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉"];
+                            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀", "🍓", "🍉", "🍒", "🍍", "🥝", "🥑", "🥕", "🌽", "🍔", "🍿", "🍩", "🧁", "🎂", "⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉","❤️","😎","🚩","🎮","🦋","🐶","🐺"];
                             let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
                             let simbolosSeleccionados = emojisMezclados.slice(0, 40); // 40 parejas
                             let nuevaBaraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
