@@ -828,7 +828,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             codigoActualPartida = codigoInc;
             partidaIdActiva = nuevoIdDoc;
 
-            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀", "🍓", "🍉", "🍒", "🍍", "🥝", "🥑", "🥕", "🌽", "🍔", "🍿", "🍩", "🧁", "🎂", "⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉"];
+            const listaEmojisBase = ["🍎", "🚗", "⭐", "⚽", "🐱", "🚀", "🎸", "🍕", "⚡", "🎨", "🧸", "🎈", "🏀", "🍪", "☁️", "☀️", "🌕", "💎", "🔥", "🍀", "🍓", "🍉", "🍒", "🍍", "🥝", "🥑", "🥕", "🌽", "🍔", "🍿", "🍩", "🧁", "🎂", "⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉","❤️","😎","🚩","🎮","🦋","🐶","🐺"];
             let emojisMezclados = [...listaEmojisBase].sort(() => Math.random() - 0.5);
             let simbolosSeleccionados = emojisMezclados.slice(0, 40); // 40 parejas
             let baraja = [...simbolosSeleccionados, ...simbolosSeleccionados];
