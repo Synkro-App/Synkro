@@ -318,7 +318,6 @@ async function comprobarParejaRed() {
     let p4 = datosPartidaGlobal.parejas4 || 0;
     let turnoActual = datosPartidaGlobal.turno;
 
-    // Turno cíclico de 4 jugadores: jugador1 -> jugador2 -> jugador3 -> jugador4 -> jugador1...
     let siguienteTurno = turnoActual;
     if (turnoActual === "jugador1") siguienteTurno = "jugador2";
     else if (turnoActual === "jugador2") siguienteTurno = "jugador3";
@@ -349,7 +348,6 @@ async function comprobarParejaRed() {
             return;
         }
         
-        // Si acierta, repite turno (mantiene el mismo)
         turnoParaGuardar = turnoActual;
     } else {
         nuevoEstado[primeraCarta.dataset.indice].flipped = false;
@@ -363,7 +361,6 @@ async function comprobarParejaRed() {
         resetearSeleccion();
         bloqueoTablero = false;
 
-        // Si falla, cambia al siguiente jugador
         turnoParaGuardar = siguienteTurno;
     }
 
@@ -580,7 +577,6 @@ function mostrarPopupSolicitudReinicio(votosCount) {
             votosActuales.push(rolJugador);
         }
 
-        // Se requieren los 4 votos (los 4 jugadores) para reiniciar
         if (votosActuales.length >= 4) {
             const iconosMezclados = [...iconosDisponibles].sort(() => 0.5 - Math.random());
             const cartasArray = [...iconosMezclados.slice(0, totalParejas), ...iconosMezclados.slice(0, totalParejas)].sort(() => 0.5 - Math.random());
@@ -610,7 +606,7 @@ function mostrarPopupSolicitudReinicio(votosCount) {
 
     btns.appendChild(btnRechazar);
     btns.appendChild(btnAceptar);
-    modal.classList.add("hidden");
+    modal.classList.remove("hidden"); // <-- CORREGIDO: Se muestra el modal en lugar de ocultarlo
 }
 
 function mostrarPopupAvisoSalida(texto) {
