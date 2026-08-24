@@ -40,7 +40,6 @@ let rolJugador = null;
 let datosPartidaGlobal = null;
 let unsubPartida = null;
 
-// 20 parejas (40 cartas en total) para 4 jugadores
 const iconosDisponibles = ["🍎", "🚗", "⭐", "🐶", "🐱", "🚀", "⚽", "🎵", "🎨", "🍕", "⚡", "🔥", "💎", "🌵", "🏀", "🎁", "💡", "🍀", "👑", "🎯"];
 const totalParejas = 20;
 
@@ -51,7 +50,6 @@ const traduccionesLocales = {
     "btn_volver": { "es": "Volver", "en": "Back", "fr": "Retour", "ro": "Înapoi" },
     "titulo_ia1_dificil": { "es": "Memoria - Multijugador (4 Jugadores)", "en": "Memory - Multiplayer (4 Players)", "fr": "Mémoire - Multijoueur (4 Joueurs)", "ro": "Memorie - Multiplayer (4 Jucători)" },
     "esperando_oponentes": { "es": "Esperando oponentes...", "en": "Waiting for opponents...", "fr": "En attente d'adversaires...", "ro": "Se așteaptă oponenții..." },
-    "esperando_...", { "es": "Esperando...", "en": "Waiting...", "fr": "En attente...", "ro": "Se așteaptă..." },
     "tu_turno": { "es": "Tu turno", "en": "Your turn", "fr": "Votre tour", "ro": "Rândul tău" },
     "turno_de": { "es": "Turno de", "en": "Turn of", "fr": "Tour de", "ro": "Rândul lui" },
     "cerrar": { "es": "Cerrar", "en": "Close", "fr": "Fermer", "ro": "Închide" },
@@ -60,19 +58,23 @@ const traduccionesLocales = {
     "rechazar": { "es": "Rechazar", "en": "Reject", "fr": "Rejeter", "ro": "Respinge" },
     "aceptar": { "es": "Aceptar", "en": "Accept", "fr": "Accepter", "ro": "Acceptă" },
     "no_es_tu_turno": { "es": "No es tu turno", "en": "It's not your turn", "fr": "Ce n'est pas votre tour", "ro": "Nu este rândul tău" },
-    "jugador_1": { "es": "Jugador 1", "en": "Player 1", "fr": "Joueur 1", "ro": "Jucător 1" },
-    "aviso_abandono_partida": { "es": "Uno de los jugadores ha decidido no continuar la partida.", "en": "One of the players has decided not to continue the game.", "fr": "L'un des joueurs a décidé de ne pas continuer la partie.", "ro": "Unul dintre jucători a decis să nu continue jocul." },
-    "fin_partida_formato": { 
-        "es": "Fin de partida - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}", 
-        "en": "Game over - P1: {p1} | P2: {p2} | P3: {p3} | P4: {p4}", 
-        "fr": "Fin de partie - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}", 
-        "ro": "Sfârșitul jocului - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}" 
-    },
-    "solicitud_revancha_formato": { 
+    "revancha_solicitud": { 
         "es": "Solicitud de revancha ({votos}/4 jugadores listos). ¿Deseas aceptar?", 
         "en": "Rematch request ({votos}/4 players ready). Do you want to accept?", 
         "fr": "Demande de revanche ({votos}/4 joueurs prêts). Voulez-vous accepter?", 
-        "ro": "Cerere de revanșă ({votos}/4 jucători gata). Dorești să accepți?" 
+        "ro": "Cerere de revanșă ({votos}/4 jucători gata). Vrei să accepți?" 
+    },
+    "revancha_rechazada_msg": { 
+        "es": "Uno de los jugadores ha decidido no continuar la partida.", 
+        "en": "One of the players has decided not to continue the game.", 
+        "fr": "L'un des joueurs a décidé de ne pas continuer la partie.", 
+        "ro": "Unul dintre jucători a decis să nu continue jocul." 
+    },
+    "fin_partida_texto": { 
+        "es": "Fin de partida - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}", 
+        "en": "Game over - P1: {p1} | P2: {p2} | P3: {p3} | P4: {p4}", 
+        "fr": "Fin de partie - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}", 
+        "ro": "Joc terminat - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}" 
     }
 };
 
@@ -111,14 +113,19 @@ function calcularEdadCompleta(fechaNacimientoStr) {
     return edad;
 }
 
-function obtenerTextoTraduccion(clave, fallbackTexto) {
+function obtenerTextoTraduccion(clave, fallbackTexto, variables = {}) {
+    let texto = fallbackTexto;
     if (diccionario[clave] && diccionario[clave][currentLanguage]) {
-        return diccionario[clave][currentLanguage];
+        texto = diccionario[clave][currentLanguage];
+    } else if (traduccionesLocales[clave] && traduccionesLocales[clave][currentLanguage]) {
+        texto = traduccionesLocales[clave][currentLanguage];
     }
-    if (traduccionesLocales[clave] && traduccionesLocales[clave][currentLanguage]) {
-        return traduccionesLocales[clave][currentLanguage];
-    }
-    return fallbackTexto;
+    
+    // Reemplazo dinámico de variables como {votos}, {p1}, etc.
+    Object.keys(variables).forEach(key => {
+        texto = texto.replace(new RegExp(`\\{${key}\\}`, 'g'), variables[key]);
+    });
+    return texto;
 }
 
 function aplicarTraduccionesEstaticas() {
@@ -143,8 +150,7 @@ function mostrarToast(mensaje) {
 }
 
 async function obtenerAvatarYNombreUsuario(nombreUsuario) {
-    const textoEsperando = obtenerTextoTraduccion("esperando_...", "Esperando...");
-    if (!nombreUsuario) return { avatar: "../../default-profile.png", nombre: textoEsperando };
+    if (!nombreUsuario) return { avatar: "../../default-profile.png", nombre: obtenerTextoTraduccion("esperando_oponentes", "Esperando oponentes...") };
     try {
         const usuariosRef = collection(db, "Usuarios");
         const q = query(usuariosRef, where("usuario", "==", nombreUsuario));
@@ -161,11 +167,7 @@ async function obtenerAvatarYNombreUsuario(nombreUsuario) {
 }
 
 async function actualizarCabeceraJugadores(data) {
-    const textoJugador1Defecto = obtenerTextoTraduccion("jugador_1", "Jugador 1");
-    const textoEsperando = obtenerTextoTraduccion("esperando_...", "Esperando...");
-    const textoEsperandoOponentes = obtenerTextoTraduccion("esperando_oponentes", "Esperando oponentes...");
-
-    const j1Name = data.jugador1 || textoJugador1Defecto;
+    const j1Name = data.jugador1 || "Jugador 1";
     const j2Name = data.jugador2 || "";
     const j3Name = data.jugador3 || "";
     const j4Name = data.jugador4 || "";
@@ -188,13 +190,13 @@ async function actualizarCabeceraJugadores(data) {
     if (txtJ1) txtJ1.textContent = infoJ1.nombre;
 
     if (imgJ2) imgJ2.src = infoJ2.avatar;
-    if (txtJ2) txtJ2.textContent = j2Name ? infoJ2.nombre : textoEsperando;
+    if (txtJ2) txtJ2.textContent = j2Name ? infoJ2.nombre : obtenerTextoTraduccion("esperando_oponentes", "Esperando oponentes...");
 
     if (imgJ3) imgJ3.src = infoJ3.avatar;
-    if (txtJ3) txtJ3.textContent = j3Name ? infoJ3.nombre : textoEsperando;
+    if (txtJ3) txtJ3.textContent = j3Name ? infoJ3.nombre : obtenerTextoTraduccion("esperando_oponentes", "Esperando oponentes...");
 
     if (imgJ4) imgJ4.src = infoJ4.avatar;
-    if (txtJ4) txtJ4.textContent = j4Name ? infoJ4.nombre : textoEsperandoOponentes;
+    if (txtJ4) txtJ4.textContent = j4Name ? infoJ4.nombre : obtenerTextoTraduccion("esperando_oponentes", "Esperando oponentes...");
 }
 
 async function gestionarMatchmaking() {
@@ -470,8 +472,7 @@ function escucharPartida() {
                         if (data.turno === "jugador3") oponenteNombre = data.jugador3;
                         if (data.turno === "jugador4") oponenteNombre = data.jugador4;
                         
-                        const txtTurnoDe = obtenerTextoTraduccion("turno_de", "Turno de");
-                        indicador.textContent = `${txtTurnoDe} ${oponenteNombre}`;
+                        indicador.textContent = `${obtenerTextoTraduccion("turno_de", "Turno de")} ${oponenteNombre}`;
                         indicador.style.backgroundColor = "rgba(255, 100, 100, 0.3)";
                     }
                 }
@@ -497,13 +498,7 @@ function escucharPartida() {
                 await registrarTransaccionNova(parejasMis);
             }
 
-            let formatoFin = obtenerTextoTraduccion("fin_partida_formato", "Fin de partida - J1: {p1} | J2: {p2} | J3: {p3} | J4: {p4}");
-            let textoModal = formatoFin
-                .replace("{p1}", p1)
-                .replace("{p2}", p2)
-                .replace("{p3}", p3)
-                .replace("{p4}", p4);
-
+            let textoModal = obtenerTextoTraduccion("fin_partida_texto", `Fin de partida - J1: ${p1} | J2: ${p2} | J3: ${p3} | J4: ${p4}`, { p1, p2, p3, p4 });
             mostrarPopupFinPartida(textoModal, data);
         }
 
@@ -517,8 +512,7 @@ function escucharPartida() {
                 mostrarPopupSolicitudReinicio(votos.length);
             }
         } else if (data.partida === "revancha_rechazada") {
-            let textoAbandono = obtenerTextoTraduccion("aviso_abandono_partida", "Uno de los jugadores ha decidido no continuar la partida.");
-            mostrarPopupAvisoSalida(textoAbandono);
+            mostrarPopupAvisoSalida(obtenerTextoTraduccion("revancha_rechazada_msg", "Uno de los jugadores ha decidido no continuar la partida."));
         } else if (data.partida === "espera" && juegoTerminadoLocal && votos.length === 0) {
             juegoTerminadoLocal = false;
             window.transaccionRealizada = false;
@@ -582,8 +576,7 @@ function mostrarPopupSolicitudReinicio(votosCount) {
     const p = document.getElementById("modal-text");
     const btns = document.getElementById("modal-buttons");
 
-    let formatoSolicitud = obtenerTextoTraduccion("solicitud_revancha_formato", "Solicitud de revancha ({votos}/4 jugadores listos). ¿Deseas aceptar?");
-    p.textContent = formatoSolicitud.replace("{votos}", votosCount);
+    p.textContent = obtenerTextoTraduccion("revancha_solicitud", `Solicitud de revancha (${votosCount}/4 jugadores listos). ¿Deseas aceptar?`, { votos: votosCount });
     btns.innerHTML = "";
 
     const btnRechazar = document.createElement("button");
