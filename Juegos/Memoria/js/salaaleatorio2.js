@@ -40,7 +40,7 @@ let rolJugador = null;
 let datosPartidaGlobal = null;
 let unsubPartida = null;
 
-// Se añaden más iconos para soportar 15 parejas (30 cartas en total)
+// Se añaden más iconos para soportar 15 parejas (30 cartas en total)[cite: 23]
 const iconosDisponibles = ["🍎", "🚗", "⭐", "🐶", "🐱", "🚀", "⚽", "🎵", "🎨", "🍕", "⚡", "🔥", "💎", "🌵", "🏀", "🎁", "💡", "🍀"];
 const totalParejas = 15;
 
@@ -192,7 +192,6 @@ async function gestionarMatchmaking() {
 
     let salaEncontrada = null;
     for (let item of docsValidos) {
-        // Buscamos salas donde falte el jugador 2 o el jugador 3 y el usuario actual no esté ya dentro
         const d = item.data;
         if (d.jugador1 !== nombreUsuarioLogueado && d.jugador2 !== nombreUsuarioLogueado && d.jugador3 !== nombreUsuarioLogueado) {
             if (!d.jugador2 || d.jugador2 === "") {
@@ -315,6 +314,8 @@ async function comprobarParejaRed() {
     else if (turnoActual === "jugador2") siguienteTurno = "jugador3";
     else if (turnoActual === "jugador3") siguienteTurno = "jugador1";
 
+    let turnoParaGuardar = turnoActual; // Por defecto se queda el mismo si acierta
+
     if (esCoincidencia) {
         nuevoEstado[primeraCarta.dataset.indice].matched = true;
         nuevoEstado[segundaCarta.dataset.indice].matched = true;
@@ -334,6 +335,9 @@ async function comprobarParejaRed() {
             await actualizarFinPartidaDB(p1, p2, p3, nuevoEstado);
             return;
         }
+        
+        // Si acierta, EL TURNO SE MANTIENE igual (no cambia a `siguienteTurno`)
+        turnoParaGuardar = turnoActual;
     } else {
         nuevoEstado[primeraCarta.dataset.indice].flipped = false;
         nuevoEstado[segundaCarta.dataset.indice].flipped = false;
@@ -345,6 +349,9 @@ async function comprobarParejaRed() {
 
         resetearSeleccion();
         bloqueoTablero = false;
+
+        // Si falla, EL TURNO CAMBIA al siguiente jugador
+        turnoParaGuardar = siguienteTurno;
     }
 
     await updateDoc(doc(db, "Partidas de Memoria", partidaIdGlobal), {
@@ -352,7 +359,7 @@ async function comprobarParejaRed() {
         parejas1: p1,
         parejas2: p2,
         parejas3: p3,
-        turno: siguienteTurno
+        turno: turnoParaGuardar
     });
 }
 
@@ -458,7 +465,6 @@ function escucharPartida() {
             mostrarPopupFinPartida(textoModal, data);
         }
 
-        // Gestión de votos de revancha (los 3 deben aceptar)
         const votos = data.votosRevancha || [];
         const haVotadoElUsuario = votos.includes(rolJugador);
 
@@ -556,7 +562,6 @@ function mostrarPopupSolicitudReinicio(votosCount) {
             votosActuales.push(rolJugador);
         }
 
-        // Si los 3 aceptan, se reinicia la partida por completo
         if (votosActuales.length >= 3) {
             const iconosMezclados = [...iconosDisponibles].sort(() => 0.5 - Math.random());
             const cartasArray = [...iconosMezclados.slice(0, totalParejas), ...iconosMezclados.slice(0, totalParejas)].sort(() => 0.5 - Math.random());
