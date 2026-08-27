@@ -1,0 +1,199 @@
+/* Reset básico para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo con exactamente el mismo degradado alineado arriba */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    touch-action: manipulation;
+}
+
+/* --- CONTENEDOR DE LA CABECERA --- */
+.hub-real-header {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Filas interactivas de la cabecera */
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fila de metadatos (Novas + Subs) */
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Fila de botones de acción inferiores */
+.row-actions {
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* Estilos de elementos internos de la cabecera */
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Botón obligatorio del proyecto: Fondo rojo con texto y bordes negros */
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+.main-content-hub {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+}
+
+.brand-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+
+/* Estilos específicos para el contenedor del juego de Dino */
+.dino-game-container {
+    width: 100%;
+    background-color: #f7f7f7;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.dino-stats-bar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.08);
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#dinoCanvas {
+    width: 100%;
+    height: auto;
+    background-color: #f7f7f7;
+    display: block;
+    cursor: pointer;
+}
+
+.dino-mobile-hints {
+    width: 100%;
+    background-color: #eaeaea;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #555;
+    padding: 4px;
+    border-top: 1px solid #ddd;
+}

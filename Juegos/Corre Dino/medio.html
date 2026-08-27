@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Corre Dino (Medio)</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/medio.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-medio">Corre Dino - Medio</h1>
+        </div>
+
+        <!-- Contenedor del juego de Dino con panel de estadísticas expandido -->
+        <div class="dino-game-container">
+            <div class="dino-stats-bar">
+                <span>📍 <strong id="stat-km">0.00</strong> km</span>
+                <span>🦘 Saltos: <strong id="stat-saltos">0</strong></span>
+                <span>👤 Agachos: <strong id="stat-agachos">0</strong></span>
+                <span>🟡 Monedas: <strong id="stat-monedas">0</strong></span>
+            </div>
+            <canvas id="dinoCanvas" width="600" height="160"></canvas>
+            <div class="dino-mobile-hints">📱 Toca para saltar | Desliza abajo para agacharte</div>
+        </div>
+    </main>
+
+    <script type="module" src="js/medio.js"></script>
+</body>
+</html>
