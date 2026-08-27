@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Seleccionar Cantidad de Jugadores</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/selectcantidadjugadores.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-cantidad-jugadores">Selecciona la cantidad de jugadores</h1>
+        </div>
+
+        <div class="game-container">
+            <button type="button" id="btn-1-jugador" class="btn-juego-custom">Con 1 Jugador</button>
+            <button type="button" id="btn-2-jugadores" class="btn-juego-custom">Con 2 Jugadores</button>
+            <button type="button" id="btn-3-jugadores" class="btn-juego-custom">Con 3 Jugadores</button>
+            <button type="button" id="btn-4-jugadores" class="btn-juego-custom">Con 4 Jugadores</button>
+        </div>
+    </main>
+
+    <script type="module" src="js/selectcantidadjugadores.js"></script>
+</body>
+</html>

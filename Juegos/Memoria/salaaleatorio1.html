@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Memoria Contra IA (Difícil)</title>
+    <link rel="icon" type="image/jpeg" href="../../Synkro.jpg">
+    <link rel="stylesheet" href="css/salaaleatorio1.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="brand-language-row" style="justify-content: center;">
+            <h1 class="brand-title" id="titulo-ia1-dificil">Memoria - Multijugador</h1>
+        </div>
+
+        <!-- Indicador visual de los jugadores (Avatares y nombres) -->
+        <div id="players-header-info" class="players-header-info">
+            <div class="player-info-badge" id="badge-jugador1">
+                <img id="avatar-j1" src="../../default-profile.png" alt="J1" class="avatar-mini">
+                <span id="name-j1" class="name-mini">Jugador 1</span>
+            </div>
+            <span class="vs-text">VS</span>
+            <div class="player-info-badge" id="badge-jugador2">
+                <img id="avatar-j2" src="../../default-profile.png" alt="J2" class="avatar-mini">
+                <span id="name-j2" class="name-mini">Esperando...</span>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div id="turn-indicator" class="game-message">Esperando oponente...</div>
+            <div class="memory-board-medio" id="memory-board"></div>
+            <div id="game-message" class="game-message hidden"></div>
+            <button type="button" id="btn-reiniciar" class="btn-juego-custom hidden"></button>
+        </div>
+    </main>
+
+    <div id="modal-popup" class="game-message hidden" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: rgba(0,0,0,0.9); color: #fff; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; text-align: center;">
+        <p id="modal-text"></p>
+        <div id="modal-buttons" style="margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"></div>
+    </div>
+
+    <!-- Pop-up temporal para avisos rápidos (ej: No es tu turno) -->
+    <div id="toast-popup" class="toast-popup hidden"></div>
+
+    <script type="module" src="js/salaaleatorio1.js"></script>
+</body>
+</html>
