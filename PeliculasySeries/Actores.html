@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Actores</title>
+    <link class="icon" type="image/jpeg" href="../Synkro.jpg">
+    <link rel="stylesheet" href="css/Actores.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text"></span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <!-- Título con el nombre del Actor -->
+        <div class="actor-header-container">
+            <h1 id="titulo-actor-nombre" class="titulo-actor-text"></h1>
+        </div>
+
+        <!-- Carrusel / Galería de imágenes -->
+        <div id="galeria-actor-container" class="actor-gallery-wrapper">
+            <button type="button" id="btn-galeria-prev" class="btn-carrusel left" style="display: none;">&#10094;</button>
+            <div class="galeria-img-box">
+                <img id="img-actor-display" src="" alt="Actor" class="img-actor-active">
+            </div>
+            <button type="button" id="btn-galeria-next" class="btn-carrusel right" style="display: none;">&#10095;</button>
+        </div>
+
+        <!-- Contenedor Ficha de Info del Actor -->
+        <div id="contenedor-info-actor" class="actor-info-card" style="display: none;">
+            <div class="info-personal-row">
+                <div class="info-personal-item">
+                    <span id="label-nacimiento" class="meta-label"></span>
+                    <span id="val-nacimiento" class="meta-val"></span>
+                </div>
+                <div class="info-personal-item">
+                    <span id="label-lugar" class="meta-label"></span>
+                    <span id="val-lugar" class="meta-val"></span>
+                </div>
+            </div>
+            <div class="info-bio-box">
+                <p id="info-actor-txt" class="bio-text"></p>
+            </div>
+        </div>
+
+        <!-- Sección de Filmografía (Películas y Series) -->
+        <div class="filmografia-section">
+            <h2 id="titulo-filmografia" class="filmografia-titulo-text"></h2>
+            <div id="contenedor-grid-filmografia" class="filmografia-grid"></div>
+        </div>
+    </main>
+
+    <!-- Modal Pop-up Personalizado para Avisos / Bloqueos de Acceso -->
+    <div id="modal-aviso-acceso" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-aviso-titulo" class="modal-titulo">Aviso</h3>
+                <button type="button" id="btn-cerrar-modal-aviso" class="btn-cerrar-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-aviso-mensaje" class="modal-mensaje-txt"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-aceptar-modal-aviso" class="btn-default">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/Actores.js"></script>
+</body>
+</html>

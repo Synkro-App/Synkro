@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Película</title>
+    <link class="icon" type="image/jpeg" href="../Synkro.jpg">
+    <link rel="stylesheet" href="css/Película.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="../default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text"></span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="../NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="pelicula-header-container">
+            <h1 id="titulo-pelicula" class="titulo-pelicula"></h1>
+        </div>
+
+        <div class="pelicula-card-container">
+            <div class="pelicula-left-column">
+                <img id="img-pelicula" src="" alt="Poster" class="poster-pelicula">
+            </div>
+
+            <div class="pelicula-right-column">
+                <div class="meta-info-row">
+                    <div class="meta-item">
+                        <span id="label-edad-recomendada" class="lbl-meta"></span>
+                        <span id="val-edad-minima" class="val-meta"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="label-fecha-estreno" class="lbl-meta"></span>
+                        <span id="val-fecha-estreno" class="val-meta"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span id="label-duracion" class="lbl-meta"></span>
+                        <span id="val-duracion" class="val-meta"></span>
+                    </div>
+                </div>
+
+                <div class="sinopsis-container">
+                    <p id="val-sinopsis" class="text-sinopsis"></p>
+                </div>
+
+                <div class="arrays-container">
+                    <div class="array-row">
+                        <span id="label-categorias" class="lbl-array"></span>
+                        <span id="val-categorias" class="val-array"></span>
+                    </div>
+                    <div class="array-row">
+                        <span id="label-listas" class="lbl-array"></span>
+                        <span id="val-listas" class="val-array"></span>
+                    </div>
+                    <div class="array-row">
+                        <span id="label-actores" class="lbl-array"></span>
+                        <span id="val-actores" class="val-array"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contenedor externo para las acciones principales -->
+    <section class="acciones-pelicula-container">
+        <button type="button" id="btn-agregar-favoritas" class="btn-default"></button>
+        <button type="button" id="btn-agregar-vistas" class="btn-default"></button>
+        <button type="button" id="btn-ver-trailer" class="btn-default"></button>
+        <button type="button" id="btn-ver-pelicula" class="btn-default"></button>
+    </section>
+
+    <!-- POP-UP TRAILER -->
+    <div id="modal-trailer" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span id="modal-trailer-titulo" class="modal-title">Tráiler</span>
+                <button type="button" id="btn-cerrar-modal-trailer" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-trailer-langs" class="modal-lang-selector"></div>
+                <div class="modal-player-container">
+                    <iframe id="modal-trailer-iframe" class="modal-player-iframe" allowfullscreen allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP VER PELÍCULA (REPRODUCCIÓN EN LA MISMA PÁGINA MEDIANTE ENLACE/IFRAME) -->
+    <div id="modal-ver" class="modal-overlay hidden">
+        <div class="modal-card modal-card-large">
+            <div class="modal-header">
+                <span id="modal-ver-titulo" class="modal-title">Reproductor de Película</span>
+                <button type="button" id="btn-cerrar-modal-ver" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-ver-opciones" class="modal-lang-selector"></div>
+                <div class="modal-player-container">
+                    <iframe id="video-player-pelicula" class="modal-player-iframe" allowfullscreen allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/Película.js"></script>
+</body>
+</html>
