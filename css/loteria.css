@@ -1,0 +1,358 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #708090, #4682b4, #6a5acd);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    touch-action: manipulation;
+}
+
+.hub-real-header {
+    width: 100%;
+    max-width: 750px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.header-real-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.clickable-row {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.row-meta {
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.row-actions {
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.username-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.novas-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.novas-text, .subs-label, .subs-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.btn-default {
+    background-color: #ff0000;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: #cc0000;
+}
+
+/* Clases de colores personalizados para botones */
+.btn-verde {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+}
+.btn-verde:hover {
+    background-color: #218838 !important;
+}
+
+.btn-azul-claro {
+    background-color: #00d5ff !important;
+    color: #000000 !important;
+}
+.btn-azul-claro:hover {
+    background-color: #478ef9 !important;
+}
+
+.main-content-hub {
+    width: 100%;
+    max-width: 750px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.brand-language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #000000;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.loteria-top-row {
+    align-items: center;
+}
+
+.brand-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.loteria-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mi-boleto-badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+.loteria-info-box {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Pop-up temporal flotante (Anti-Alerts) */
+.popup-temporal-flotante {
+    width: 100%;
+    background-color: #ffffe0;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: fadeInOut 0.3s ease;
+}
+
+.boletos-grid-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.semana-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.semana-card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.boletos-numeros-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.boleto-item-btn {
+    background-color: #fbff00;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boleto-item-btn:hover {
+    background-color: #b2b500;
+}
+
+.boleto-item-btn.comprado {
+    background-color: #a85f5f;
+    color: #dddddd;
+    cursor: not-allowed;
+}
+
+/* Modales */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-large {
+    max-width: 600px;
+    max-height: 80vh;
+}
+
+.modal-close-x {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000000;
+}
+
+.modal-buttons-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-scroll-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.comprador-info-text {
+    font-size: 1.05rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.item-lista-modal {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.premios-semana-box {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.premios-numeros-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 5px;
+}
