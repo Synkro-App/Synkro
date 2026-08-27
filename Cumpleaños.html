@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Cumpleaños</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/cumpleanos.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="cumple-card-content">
+            <span class="cumple-icon-deco">🎉🎂🎁</span>
+            <p id="info-cumpleanos" class="cumpleanos-info-text">Entra el día de tu cumpleaños para recibir una recompensa especial</p>
+            <button type="button" id="btn-feliz-cumpleanos" class="btn-default btn-verde-festivo" style="display: none;">
+                ✨ ¡Feliz cumpleaños! ✨
+            </button>
+            <!-- Mensaje de estado dinámico sin usar alerts -->
+            <div id="mensaje-estado-cumple" class="mensaje-estado" style="display: none;"></div>
+        </div>
+    </main>
+
+    <!-- Modal / Pop-up de Celebración -->
+    <div id="modal-cumpleanos" class="modal-overlay" style="display: none;">
+        <div class="modal-content-festivo">
+            <span class="modal-emoji-top">🥳🎈</span>
+            <h2 id="modal-titulo" class="modal-titulo-text">¡Sorpresa de Cumpleaños!</h2>
+            <p id="modal-mensaje" class="modal-mensaje-text">Como hoy es un día especial, y has decidido celebrarlo con nosotros, te regalamos 100.000 NovaPoints para que lo puedas usar en la web, y una suscripción Estelar de 1 semana</p>
+            <button type="button" id="btn-reclamar" class="btn-default btn-reclamar-estilo">Reclamar Regalo</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/cumpleanos.js"></script>
+</body>
+</html>

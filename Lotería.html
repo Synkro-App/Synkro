@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Lotería</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/loteria.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        
+        <!-- Fila del Título y Acciones de Lotería -->
+        <div class="brand-language-row loteria-top-row">
+            <h1 class="brand-title" id="titulo-loteria">Lotería</h1>
+            <div class="loteria-top-actions">
+                <div id="mi-boleto-container" class="mi-boleto-badge" style="display: none;">
+                    <span id="label-mi-boleto"></span> <strong id="val-mi-boleto">-</strong>
+                </div>
+                <button type="button" id="btn-numeros-premios" class="btn-default btn-azul-claro">Números y Premios</button>
+                <button type="button" id="btn-reclamar-premios" class="btn-default btn-verde" style="display: none;">Premios</button>
+            </div>
+        </div>
+
+        <!-- Textos informativos de la Lotería -->
+        <div class="loteria-info-box">
+            <p id="info-precio-boleto">Cada boleto cuesta 1.000 NovaPoints, y cada usuario solo puede comprar uno</p>
+            <p id="info-premios-detalle">Juega y prueba suerte, el Primer premio son 500.000 NovaPoints, el segundo 300.000 el tercero 150.000 el cuarto y el quinto 50.000 y 5 números de devolución (1.000)</p>
+        </div>
+
+        <!-- Pop-up o texto temporal en pantalla (Anti-Alerts) -->
+        <div id="popup-temporal" class="popup-temporal-flotante" style="display: none;"></div>
+
+        <!-- Contenedor dinámico de boletos en vigor -->
+        <div id="boletos-en-vigor-container" class="boletos-grid-container">
+            <!-- Los botones de los boletos disponibles se cargan aquí en tiempo real -->
+        </div>
+
+    </main>
+
+    <!-- POP-UP PRINCIPAL: NÚMEROS Y PREMIOS -->
+    <div id="modal-numeros-premios" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="modal-close-x" id="close-modal-np">X</button>
+            <h2 id="modal-np-title">Números y Premios</h2>
+            <div class="modal-buttons-group">
+                <button type="button" id="btn-modal-mis-numeros" class="btn-default btn-azul-claro">Mis números</button>
+                <button type="button" id="btn-modal-premios" class="btn-default btn-azul-claro">Premios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP SECUNDARIO: MIS NÚMEROS -->
+    <div id="modal-mis-numeros" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-large">
+            <button type="button" class="modal-close-x" id="close-modal-mis-num">X</button>
+            <h2 id="modal-misnum-title">Mis números</h2>
+            <div id="lista-mis-numeros-content" class="modal-scroll-list">
+                <!-- Se cargan los documentos de la subcolección Lotería del usuario -->
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP SECUNDARIO: PREMIOS -->
+    <div id="modal-premios" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-large">
+            <button type="button" class="modal-close-x" id="close-modal-premios">X</button>
+            <h2 id="modal-premios-title">Premios</h2>
+            <div id="lista-premios-content" class="modal-scroll-list">
+                <!-- Se cargan los premios y devueltos de las semanas -->
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP TERCIARIO: COMPRADOR DE UN NÚMERO -->
+    <div id="modal-comprador" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="modal-close-x" id="close-modal-comprador">X</button>
+            <h2 id="modal-comprador-title">Comprador</h2>
+            <p id="texto-comprador-info" class="comprador-info-text">Cargando...</p>
+        </div>
+    </div>
+
+    <!-- POP-UP DE CONFIRMACIÓN DE COMPRA DE BOLETO -->
+    <div id="modal-confirmar-compra" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="modal-close-x" id="close-modal-compra-x">X</button>
+            <h2 id="modal-compra-titulo">Comprar boleto</h2>
+            <p id="texto-confirmar-compra" class="comprador-info-text">¿Deseas comprar este boleto?</p>
+            <div class="modal-buttons-group">
+                <button type="button" id="btn-compra-no" class="btn-default">NO</button>
+                <button type="button" id="btn-compra-si" class="btn-default btn-verde">SI</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP DE RECLAMACIÓN DE PREMIOS PENDIENTES -->
+    <div id="modal-reclamar-lista" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-large">
+            <button type="button" class="modal-close-x" id="close-modal-reclamar">X</button>
+            <h2 id="modal-reclamar-title">Premios pendientes</h2>
+            <div id="lista-reclamar-content" class="modal-scroll-list">
+                <!-- Se cargan los premios pendientes de recoger -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/loteria.js"></script>
+</body>
+</html>

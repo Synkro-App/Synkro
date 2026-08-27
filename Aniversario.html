@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synkro - Aniversario</title>
+    <link rel="icon" type="image/jpeg" href="Synkro.jpg">
+    <link rel="stylesheet" href="css/aniversario.css">
+</head>
+<body>
+
+    <header class="hub-real-header">
+        
+        <div id="fila-perfil" class="header-real-row clickable-row">
+            <img id="user-avatar" src="default-profile.png" alt="Avatar" class="avatar-img">
+            <span id="user-display-name" class="username-text">Cargando...</span>
+        </div>
+
+        <div id="fila-novas" class="header-real-row row-meta clickable-row">
+            <div class="meta-inline-item">
+                <img src="NovaPoints.png" alt="NovaPoints" class="novas-icon">
+                <span id="user-novas" class="novas-text">0</span>
+            </div>
+            <div class="meta-inline-item">
+                <span id="text_subscripcion" class="subs-label"></span>
+                <span id="subs-display-value" class="subs-value"></span>
+            </div>
+        </div>
+
+        <div class="header-real-row row-actions">
+            <button type="button" id="btn-logout" class="btn-default"></button>
+            <button type="button" id="btn_volver" class="btn-default"></button>
+        </div>
+
+    </header>
+
+    <main class="main-content-hub">
+        <div class="aniversario-card-content">
+            <span class="aniversario-icon-deco">🎉🥂🎊</span>
+            <p id="info-aniversario" class="aniversario-info-text">Cargando información de aniversario...</p>
+            <button type="button" id="btn-feliz-aniversario" class="btn-default btn-verde-festivo" style="display: none;">
+                ✨ ¡Feliz aniversario! ✨
+            </button>
+            <div id="mensaje-estado-aniversario" class="mensaje-estado" style="display: none;"></div>
+        </div>
+    </main>
+
+    <!-- Modal / Pop-up de Celebración de Aniversario -->
+    <div id="modal-aniversario" class="modal-overlay" style="display: none;">
+        <div class="modal-content-festivo">
+            <span class="modal-emoji-top">🥳🍾</span>
+            <h2 id="modal-aniversario-titulo" class="modal-titulo-text">¡Feliz Aniversario en Synkro!</h2>
+            <p id="modal-aniversario-mensaje" class="modal-mensaje-text">Cargando mensaje...</p>
+            <button type="button" id="btn-reclamar-aniversario" class="btn-default btn-reclamar-estilo">Reclamar recompensa</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/aniversario.js"></script>
+</body>
+</html>
